@@ -55,3 +55,18 @@ header{
     font-size: 15px;
 }
 
+/* footer */
+footer{
+    background-color: #191919;
+    color: #FFFFFF;
+    /* height: 50px; */
+    display: flex;
+    justify-content: center;
+}
+
+.footer-copy{
+    margin: 18px 0;
+    font-weight: bold;
+    font-size: 12px;
+
+}
