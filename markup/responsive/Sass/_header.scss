@@ -1,9 +1,11 @@
 header{
+    width:100%;
     display: flex;
     justify-content: space-between;
     padding: 20px;
     color: #fff;
-    background-color: black;
+    position: absolute;
+    z-index: 20;
 
     nav{
         width: 45%;
@@ -11,6 +13,7 @@ header{
         ul{
             display: flex;
             justify-content: space-between;
+            align-items:center;
             font-size: 1.5rem;
         }
     }
