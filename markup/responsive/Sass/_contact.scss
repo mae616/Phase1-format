@@ -14,9 +14,17 @@
 }
 
 .contact-wrap{
-    width: 600px; // これ消すとあふれるの防げる
+    width: 600px;
     max-width: 600px;
     margin: 0 auto;
+
+    @include tab{
+        width: 80%;
+    }
+
+    @include sp{
+        width: 100%;
+    }
 }
 
 input, select, textarea{
