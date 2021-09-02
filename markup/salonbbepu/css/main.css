@@ -1,0 +1,293 @@
+@charset "UTF-8";
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+*, *:after, *:before {
+  box-sizing: border-box; }
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav, ul, li {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+a:visited {
+  color: inherti; }
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+/*# sourceMappingURL=reset.css.map */
+/* 共通部分 */
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 12px;
+  line-height: 1.67; }
+
+.inner {
+  width: 85vw;
+  margin: 0 auto;
+  padding: 260px 0 65px; }
+  .inner .title {
+    color: #707070;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; }
+    .inner .title::after {
+      content: "";
+      width: 95px;
+      border-top: 1px solid #707070;
+      margin-left: 20px; }
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 20;
+  top: 70px;
+  padding-left: 6%; }
+  header .hd-logo {
+    font-size: 3.8rem; }
+  header .ham {
+    display: none; }
+  header .pc-menu {
+    width: 30%;
+    font-size: 1.8rem; }
+    header .pc-menu ul {
+      display: flex;
+      justify-content: space-between; }
+      header .pc-menu ul li {
+        margin-left: 20px; }
+
+#first-v {
+  height: 800px;
+  background-image: url("../img/Blond woman with long curly beautiful hair_2x.png");
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  #first-v .first-v__wrap {
+    width: 46%;
+    height: 100%;
+    padding-top: 106px;
+    position: relative; }
+    #first-v .first-v__wrap .catch-wrap {
+      width: 30.5vw;
+      height: 184px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 3.8rem; }
+      #first-v .first-v__wrap .catch-wrap .catch-ja {
+        margin-bottom: 48px; }
+
+#concept {
+  position: relative; }
+  #concept .concept-bg__light-gray {
+    height: 407px;
+    background-color: #A193861F; }
+  #concept .concept-bg__dark-gray {
+    height: 560px;
+    background-color: #A1938689; }
+  #concept .concept-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+  #concept .concept-img__wrap {
+    display: flex;
+    justify-content: space-between; }
+    #concept .concept-img__wrap .concept__img {
+      height: 413px;
+      width: 30.5vw; }
+      #concept .concept-img__wrap .concept__img:nth-of-type(1) {
+        width: 53vw; }
+      #concept .concept-img__wrap .concept__img img {
+        width: 100%;
+        height: 100%; }
+  #concept .concept-desc__wrap {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 78vw;
+    margin: 65px auto 65px; }
+    #concept .concept-desc__wrap .concept-catch {
+      margin-top: 5px;
+      font-size: 4rem;
+      width: 33vw; }
+    #concept .concept-desc__wrap .concept-txt {
+      font-size: 1.6rem;
+      width: 40vw; }
+
+#menu {
+  height: 921px; }
+  #menu .menu-wrap {
+    display: flex;
+    justify-content: space-between; }
+    #menu .menu-wrap .menu-item {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: 20vw;
+      height: 555px; }
+      #menu .menu-wrap .menu-item__img {
+        width: 100%;
+        height: 270px; }
+        #menu .menu-wrap .menu-item__img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+      #menu .menu-wrap .menu-item__title {
+        font-size: 3rem;
+        text-align: center; }
+      #menu .menu-wrap .menu-item__txt, #menu .menu-wrap .menu-item__price {
+        font-size: 1.6rem; }
+      #menu .menu-wrap .menu-item__price {
+        text-align: right; }
+
+#access {
+  background-color: #A193861F; }
+  #access .access-wrap {
+    display: flex;
+    height: 400px; }
+    #access .access-wrap .access-txt__wrap {
+      background-color: #D0C5BA;
+      width: 40vw;
+      position: relative; }
+      #access .access-wrap .access-txt__wrap .access-txt {
+        position: absolute;
+        top: 50%;
+        left: 8vw;
+        transform: translate(0, -50%);
+        height: 200px; }
+        #access .access-wrap .access-txt__wrap .access-txt .store-name {
+          color: #00000038;
+          font-size: 2.4rem;
+          font-weight: bold;
+          margin-bottom: 30px; }
+        #access .access-wrap .access-txt__wrap .access-txt .store-info {
+          color: #fff;
+          font-size: 1.6rem;
+          height: 138px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column; }
+    #access .access-wrap .access-map {
+      background-color: #ccc;
+      width: 60.5vw;
+      height: 100%; }
+      #access .access-wrap .access-map img {
+        width: 100%;
+        height: 100%; }
+
+footer .footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #70707036;
+  width: 83%;
+  margin: 165px auto 62px;
+  padding-top: 83px; }
+  footer .footer-wrap .cmp-name {
+    display: flex;
+    align-items: center; }
+    footer .footer-wrap .cmp-name .ft-logo {
+      font-size: 3.2rem;
+      color: #7070704D; }
+    footer .footer-wrap .cmp-name .ft-sns {
+      font-size: 2rem; }
+    footer .footer-wrap .cmp-name span:nth-of-type(2) {
+      margin: auto 10px auto 25px; }
+  footer .footer-wrap .ft-btn {
+    width: 14vw;
+    height: 37px;
+    font-size: 1.8rem;
+    color: #707070;
+    border: 1px solid #707070;
+    background-color: #fff; }
+
+/*# sourceMappingURL=main.css.map */

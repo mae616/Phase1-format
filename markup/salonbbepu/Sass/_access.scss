@@ -1,0 +1,52 @@
+#access{
+    background-color: $bg-light-gray;
+
+    .access-wrap{
+        display: flex;
+        height: 400px;
+
+        .access-txt__wrap{
+            background-color: #D0C5BA;
+            // 507px / 1282px(画面サイズ)
+            width: 40vw;
+            position: relative;
+
+            
+            .access-txt{
+                position: absolute;
+                top: 50%;
+                left: 8vw; // 100px / 1282px(画面サイズ)
+                transform: translate(0, -50%);
+                height: 200px;
+
+                .store-name{
+                    color: #00000038;
+                    font-size: 2.4rem;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                }
+
+                .store-info{
+                    color: #fff;
+                    font-size: 1.6rem;
+                    height: 138px;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        .access-map{
+            background-color: #ccc; // とりあえず適当に
+            // 775px / 1282px(画面サイズ)
+            width: 60.5vw;
+            height: 100%;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

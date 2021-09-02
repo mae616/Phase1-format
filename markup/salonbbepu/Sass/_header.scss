@@ -1,0 +1,34 @@
+header{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 20;
+    top: 70px;
+    // 77px / 1282px(画面サイズ)
+    padding-left: 6%;
+
+    .hd-logo{
+        font-size: 3.8rem;
+    }
+
+    .ham{
+        display: none;
+    }
+
+    .pc-menu{
+        // 381px(pc-menuサイズ) / 1282px (画面サイズ)
+        width: 30%;
+        font-size: 1.8rem;
+
+        ul{
+            display: flex;
+            justify-content: space-between;
+
+            li{
+                margin-left: 20px;
+            }
+        }
+    }
+}

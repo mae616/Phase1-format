@@ -1,0 +1,43 @@
+footer{
+
+    .footer-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #70707036;
+        // 1282px-(110px(余白)*2) /1282px(画面サイズ)
+        width: 83%;
+        margin: 165px auto 62px;
+        padding-top: 83px;
+
+        .cmp-name{
+            display: flex;
+            align-items: center;
+
+            .ft-logo{
+                font-size: 3.2rem;
+                color: #7070704D;
+            }
+
+            .ft-sns{
+                font-size: 2rem;
+            }
+
+            span:nth-of-type(2){
+                margin: auto 10px auto 25px;
+            }
+        }
+
+        .ft-btn{
+            // 184px(ボタンサイズ) / 1282px(画面サイズ)
+            width: 14vw;
+            height: 37px;
+            font-size: 1.8rem;
+            color: $font-dark-gray;
+            border: 1px solid $font-dark-gray;
+            background-color: #fff;
+        }
+    }
+}
+
+

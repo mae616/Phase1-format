@@ -1,0 +1,35 @@
+/* 共通部分 */
+html{
+    font-size: 62.5%; //10px=1remになる
+}
+
+body{
+    font-size:12px;
+    line-height:1.67;
+}
+
+$font-dark-gray:#707070;
+$bg-light-gray: #A193861F;
+
+.inner{
+    // (1282px-100px(余白)*2) / 1282px(画面サイズ)
+    width: 85vw;
+    margin: 0 auto;
+    padding: 260px 0 65px;
+
+
+    .title{
+        color: $font-dark-gray;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &::after{
+            content: "";
+            width: 95px;
+            border-top: 1px solid $font-dark-gray;
+            margin-left: 20px;
+        }
+    }
+}

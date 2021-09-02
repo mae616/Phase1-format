@@ -1,0 +1,31 @@
+#first-v{
+    height: 800px;
+    background-image: url("../img/Blond\ woman\ with\ long\ curly\ beautiful\ hair_2x.png");
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    .first-v__wrap{
+        // 594px / 1282px(画面サイズ)
+        width: 46%;
+        height: 100%;
+        padding-top: 106px; // headerの高さ(.catch-wrapをheader後する為)
+        position: relative;
+
+        .catch-wrap{
+            // 390px / 1282px(画面サイズ)
+            width: 30.5vw;
+            height: 184px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 3.8rem;
+
+            .catch-ja{
+                margin-bottom: 48px;
+            }
+        }
+    }
+}
