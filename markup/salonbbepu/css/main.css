@@ -101,7 +101,7 @@ input, select {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; }
+  scroll-padding-top: 10vh; }
 
 body {
   font-size: 12px;
@@ -110,10 +110,10 @@ body {
 .inner {
   width: 85vw;
   margin: 0 auto;
-  padding: 260px 0 65px; }
+  padding: 32.5vh 0 8vh; }
   @media (max-width: 1024px) {
     .inner {
-      padding-top: 60px;
+      padding-top: 10vh;
       width: 80vw; } }
   @media (max-width: 599px) {
     .inner {
@@ -143,13 +143,13 @@ header {
       padding-left: 0;
       position: relative;
       top: 0;
-      z-index: auto;
+      z-index: initial;
       justify-content: space-between; } }
   header .hd-logo {
     font-size: 3.8rem; }
     @media (max-width: 1024px) {
       header .hd-logo {
-        margin: 25px auto 25px 6vw; } }
+        margin: 4vh auto 4vh 6vw; } }
     @media (max-width: 599px) {
       header .hd-logo {
         font-size: 2.2rem; } }
@@ -205,19 +205,15 @@ header {
             width: 100%; }
 
 #first-v {
-  height: 800px;
+  height: 100vh;
   background-image: url("../img/Blond woman with long curly beautiful hair_2x.png");
   background-position: right;
-  background-size: contain;
+  background-size: 54%;
   background-repeat: no-repeat; }
   @media (max-width: 1024px) {
     #first-v {
-      background-position: 0 0;
-      background-size: cover;
-      height: 700px; } }
-  @media (max-width: 599px) {
-    #first-v {
-      height: 600px; } }
+      background-position: initial;
+      background-size: cover; } }
   #first-v .first-v__wrap {
     width: 46%;
     height: 100%;
@@ -327,48 +323,44 @@ header {
           width: 90vw;
           font-size: 1.6rem; } }
 
-#menu {
-  height: 921px; }
+@media (max-width: 1024px) {
+  #menu {
+    height: initial; } }
+#menu .menu-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5vh; }
   @media (max-width: 1024px) {
-    #menu {
-      height: auto; } }
-  #menu .menu-wrap {
-    display: flex;
-    justify-content: space-between; }
+    #menu .menu-wrap {
+      flex-direction: column; } }
+  #menu .menu-wrap .menu-item {
+    max-width: 20vw; }
     @media (max-width: 1024px) {
-      #menu .menu-wrap {
-        flex-direction: column; } }
-    #menu .menu-wrap .menu-item {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-      max-width: 20vw;
-      height: 555px;
-      margin-right: 2vw; }
+      #menu .menu-wrap .menu-item {
+        max-width: 100%;
+        margin-bottom: 10vh; } }
+    @media (max-width: 1024px) {
       #menu .menu-wrap .menu-item:nth-last-of-type(1) {
-        margin-right: 0; }
-      @media (max-width: 1024px) {
-        #menu .menu-wrap .menu-item {
-          max-width: 100%;
-          margin-bottom: 60px;
-          margin-right: 0; } }
-      #menu .menu-wrap .menu-item__img {
+        margin-bottom: 0; } }
+    #menu .menu-wrap .menu-item div:nth-child(n+2):nth-last-child(n+1) {
+      margin-top: 30px; }
+    #menu .menu-wrap .menu-item__img {
+      width: 100%;
+      height: 270px; }
+      #menu .menu-wrap .menu-item__img img {
         width: 100%;
-        height: 270px; }
-        #menu .menu-wrap .menu-item__img img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover; }
-      #menu .menu-wrap .menu-item__title {
-        font-size: 3rem;
-        text-align: center; }
-        @media (max-width: 1024px) {
-          #menu .menu-wrap .menu-item__title {
-            text-align: left; } }
-      #menu .menu-wrap .menu-item__txt, #menu .menu-wrap .menu-item__price {
-        font-size: 1.6rem; }
-      #menu .menu-wrap .menu-item__price {
-        text-align: right; }
+        height: 100%;
+        object-fit: cover; }
+    #menu .menu-wrap .menu-item__title {
+      font-size: 3rem;
+      text-align: center; }
+      @media (max-width: 1024px) {
+        #menu .menu-wrap .menu-item__title {
+          text-align: initial; } }
+    #menu .menu-wrap .menu-item__txt, #menu .menu-wrap .menu-item__price {
+      font-size: 1.6rem; }
+    #menu .menu-wrap .menu-item__price {
+      text-align: right; }
 
 #access {
   background-color: #A193861F; }
@@ -395,7 +387,7 @@ header {
       position: relative; }
       @media (max-width: 1024px) {
         #access .access-wrap .access-txt__wrap {
-          position: static;
+          position: initial;
           width: 100%;
           height: 282px; } }
       #access .access-wrap .access-txt__wrap .access-txt {
@@ -406,8 +398,8 @@ header {
         transform: translate(0, -50%); }
         @media (max-width: 1024px) {
           #access .access-wrap .access-txt__wrap .access-txt {
-            position: static;
-            transform: none;
+            position: initial;
+            transform: initial;
             margin: 30px auto 0;
             width: 90%; } }
         @media (max-width: 599px) {
@@ -447,21 +439,21 @@ footer .footer-wrap {
   align-items: center;
   border-top: 1px solid #70707036;
   width: 83%;
-  margin: 165px auto 62px;
+  margin: 20.5vh auto 8vh;
   padding-top: 83px; }
   @media (max-width: 1024px) {
     footer .footer-wrap {
       flex-direction: column-reverse;
       width: 90%;
-      margin: 60px auto 20px;
-      padding-top: 60px; } }
+      margin: 10vh auto 3vh;
+      padding-top: 10vh; } }
   footer .footer-wrap .cmp-name {
     display: flex;
     align-items: center; }
     @media (max-width: 1024px) {
       footer .footer-wrap .cmp-name {
         width: 100%;
-        margin-top: 62px;
+        margin-top: 10vh;
         justify-content: space-between; } }
     footer .footer-wrap .cmp-name .ft-logo {
       font-size: 3.2rem;

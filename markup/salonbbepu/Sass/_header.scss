@@ -12,9 +12,9 @@ header{
 
     @include tab{
         padding-left: 0;
-        position: relative;
+        position: relative; // hamの為
         top: 0;
-        z-index: auto;
+        z-index: initial;
         justify-content: space-between;
 
     }
@@ -23,8 +23,9 @@ header{
         font-size: 3.8rem;
 
         @include tab{
-            // 21px / 375px (画面サイズ) =6vw
-            margin: 25px auto 25px 6vw;
+            // 25px(上下余白) / 597px (画面高さ) =4vh
+            // 21px(左余白) / 375px (画面横幅) =6vw
+            margin: 4vh auto 4vh 6vw;
         }
 
         @include sp{

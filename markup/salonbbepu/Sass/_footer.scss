@@ -7,15 +7,19 @@ footer{
         border-top: 1px solid #70707036;
         // 1282px-(110px(余白)*2) /1282px(画面サイズ)
         width: 83%;
-        margin: 165px auto 62px;
+        // 165px(上余白) / 800px(画面高さ) = 20.5vh
+        // 62px(下余白) / 800px(画面高さ) = 8vh
+        margin: 20.5vh auto 8vh;
         padding-top: 83px;
 
         @include tab{
             flex-direction: column-reverse;
             // (375px-20px*2) / 375px(画面サイズ)
             width: 90%;
-            margin: 60px auto 20px;
-           padding-top: 60px;
+            // 60px(上余白) / 597px(画面高さ) = 10vh
+            // 20px(下余白) / 597px(画面高さ) = 3vh
+            margin: 10vh auto 3vh;
+            padding-top: 10vh;
         }
 
         .cmp-name{
@@ -24,7 +28,8 @@ footer{
 
             @include tab{
                 width: 100%;
-                margin-top: 62px;
+                // 60px(上余白) / 597px(画面高さ) = 10vh
+                margin-top: 10vh;
                 justify-content: space-between;
             }
 

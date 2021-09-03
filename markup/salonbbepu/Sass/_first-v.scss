@@ -1,20 +1,16 @@
 #first-v{
-    height: 800px;
+    height: 100vh; // 800px
     background-image: url("../img/Blond\ woman\ with\ long\ curly\ beautiful\ hair_2x.png");
     background-position: right;
-    background-size: contain;
+    // 689px(画像横幅) / 1282px(画面横幅) = 54%
+    background-size: 54%;
     background-repeat: no-repeat;
 
     @include tab{
-        background-position: 0 0;
+        background-position: initial;
         background-size: cover;
-        // 800pxと600pxの中間
-        height: 700px;
     }
 
-    @include sp{
-        height: 600px;
-    }
 
 
     .first-v__wrap{

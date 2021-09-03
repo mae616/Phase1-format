@@ -33,7 +33,7 @@
             position: relative;
 
             @include tab{
-                position: static;
+                position: initial;
                 width: 100%;
                 height: 282px; 
             }
@@ -46,8 +46,8 @@
                 transform: translate(0, -50%);
 
                 @include tab{
-                    position: static;
-                    transform: none;
+                    position: initial;
+                    transform: initial;
                     margin: 30px auto 0;
                     width: 90%;
                 }

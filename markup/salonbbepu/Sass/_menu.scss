@@ -1,34 +1,39 @@
 #menu{
-    height: 921px;
 
     @include tab{
-        height: auto;
+        height: initial;
     }
 
     .menu-wrap{
         display: flex;
         justify-content: space-between;
 
+        // 70px(下余白) - 50px(inner下余白) = 20px
+        // 20px / 800px(画面高さ) = 2.5vh
+        margin-bottom: 2.5vh;
+
         @include tab{
             flex-direction: column;
         }
 
         .menu-item{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
             max-width: 20vw;
-            height: 555px;
-            margin-right: 2vw;
-
-            &:nth-last-of-type(1){
-                margin-right: 0;
-            }
 
             @include tab{
                 max-width: 100%;
-                margin-bottom: 60px;
-                margin-right: 0;
+                // 60px(下余白) / 597px(画面高さ) = 10vh
+                margin-bottom: 10vh;
+            }
+
+            &:nth-last-of-type(1){
+
+                @include tab{
+                    margin-bottom: 0;
+                }
+            }
+
+            div:nth-child(n+2):nth-last-child(n+1){
+                margin-top: 30px;
             }
 
             &__img{
@@ -48,7 +53,7 @@
                 text-align: center;
 
                 @include tab{
-                    text-align: left;
+                    text-align: initial;
                 }
             }
 

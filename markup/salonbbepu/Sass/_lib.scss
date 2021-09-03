@@ -24,7 +24,8 @@
 html{
     font-size: 62.5%; //10px=1remになる
     scroll-behavior: smooth; // スムーススクロール
-    scroll-padding-top: 80px;  // スクロール位置の調整
+    // 80px(適当な止めたい位置) / 800px(画面高さ)
+    scroll-padding-top: 10vh;  // スクロール位置の調整
 }
 
 body{
@@ -42,10 +43,13 @@ $sp-width: 90vw;
     // (1282px-100px(余白)*2) / 1282px(画面サイズ)
     width: 85vw;
     margin: 0 auto;
-    padding: 260px 0 65px;
+    // 260px(上余白) / 800px(画面高さ) = 32.5vh
+    // 65px(下余白) / 800px(画面高さ) = 8vh
+    padding: 32.5vh 0 8vh;
 
     @include tab{
-        padding-top: 60px;
+        // 60px(上余白) / 597px(画面高さ) = 10vh
+        padding-top: 10vh;
         width: 80vw;
     }
 
