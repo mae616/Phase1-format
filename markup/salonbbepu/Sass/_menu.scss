@@ -47,7 +47,7 @@
                 font-size: 3rem;
                 text-align: center;
 
-                @include sp{
+                @include tab{
                     text-align: left;
                 }
             }

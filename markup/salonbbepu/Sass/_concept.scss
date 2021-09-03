@@ -30,33 +30,33 @@
         .concept__img{
             height: 413px;
             // 390px(画像サイズ) / 1282px(画面サイズ)
-            width: 30.5vw;
+            flex-basis: 30.5vw; // 横幅
             flex-grow: 1;
 
             @include tab{
                 // 413pxと205pxの中間
                 height: 309px;
                 // 277px(390pxと164pxの中間) / 600px(画面サイズ)
-                width: 43vw;
+                flex-basis: 43vw;
             }
 
             @include sp{
                 height: 205px; 
-                // 164px / 375px(画面サイズ) = width: 43vw
+                // 164px / 375px(画面サイズ) = flex-basis: 43vw
             }
 
 
             &:nth-of-type(1){
                 // 675px(画像サイズ) / 1282px(画面サイズ)
-                width: 53vw;
-                // 10px / 1282px(画面サイズ)
+                flex-basis: 53vw;
+                // 675px(1つ目の画像サイズ) / 390px(2つ目の画像サイズ)
+                flex-grow: 1.7;                // 10px / 1282px(画面サイズ)
                 margin-right: 1vw;
-                flex-grow: 1.7;
 
                 @include tab{
-                    width: 43vw;
                     margin-right: 1.8vw;
-                    flex-grow: 1;
+                    // 164px / 375px(画面サイズ) = flex-basis: 43vw
+                    flex: 1 43vw;
                 }
 
                 @include sp{
