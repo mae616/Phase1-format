@@ -99,7 +99,9 @@ input, select {
 /*# sourceMappingURL=reset.css.map */
 /* 共通部分 */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; }
 
 body {
   font-size: 12px;
@@ -178,7 +180,8 @@ header {
         height: 15px; } }
   header .pc-menu {
     width: 30%;
-    font-size: 1.8rem; }
+    font-size: 1.8rem;
+    color: #707070; }
     @media (max-width: 1024px) {
       header .pc-menu {
         display: none; } }
@@ -186,7 +189,20 @@ header {
       display: flex;
       justify-content: space-between; }
       header .pc-menu ul li {
-        margin-left: 20px; }
+        margin-left: 20px;
+        line-height: 0.9;
+        transition: color 0.3s; }
+        header .pc-menu ul li::after {
+          background-color: #000;
+          content: "";
+          display: block;
+          height: 1px;
+          width: 0;
+          transition: width 0.3s; }
+        header .pc-menu ul li:hover {
+          color: #000; }
+          header .pc-menu ul li:hover::after {
+            width: 100%; }
 
 #first-v {
   height: 800px;
@@ -361,7 +377,7 @@ header {
       width: 100%;
       margin-left: 0;
       margin-right: 0; }
-    #access .access-title {
+    #access #access-title {
       width: 90vw;
       margin-left: auto;
       margin-right: auto; } }

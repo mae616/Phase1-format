@@ -22,7 +22,7 @@
                             $bg-light-gray 0 25%, 
                             $bg-dark-gray 25% 100%);
     }
- 
+
     .concept-img__wrap{
         display: flex;
         justify-content: space-between;
@@ -50,7 +50,8 @@
                 // 675px(画像サイズ) / 1282px(画面サイズ)
                 flex-basis: 53vw;
                 // 675px(1つ目の画像サイズ) / 390px(2つ目の画像サイズ)
-                flex-grow: 1.7;                // 10px / 1282px(画面サイズ)
+                flex-grow: 1.7;
+                // 10px / 1282px(画面サイズ)
                 margin-right: 1vw;
 
                 @include tab{

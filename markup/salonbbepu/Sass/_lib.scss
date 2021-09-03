@@ -23,6 +23,8 @@
 /* 共通部分 */
 html{
     font-size: 62.5%; //10px=1remになる
+    scroll-behavior: smooth; // スムーススクロール
+    scroll-padding-top: 80px;  // スクロール位置の調整
 }
 
 body{

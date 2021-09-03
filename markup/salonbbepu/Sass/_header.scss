@@ -69,6 +69,7 @@ header{
         // 381px(pc-menuサイズ) / 1282px (画面サイズ)
         width: 30%;
         font-size: 1.8rem;
+        color: $font-dark-gray;
 
         @include tab{
             display: none;
@@ -80,6 +81,25 @@ header{
 
             li{
                 margin-left: 20px;
+                line-height: 0.9;
+                transition: color 0.3s;
+
+                &::after{
+                    background-color: #000;
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    width: 0;
+                    transition: width 0.3s;
+                }
+
+                &:hover{
+                    color: #000;
+
+                    &::after{
+                        width: 100%;
+                    }
+                }
             }
         }
     }
