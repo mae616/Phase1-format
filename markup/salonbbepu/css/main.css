@@ -238,30 +238,13 @@ header {
             font-size: 2.3rem; } }
 
 #concept {
-  position: relative; }
-  #concept .concept-bg__light-gray {
-    height: 407px;
-    background-color: #A193861F; }
-    @media (max-width: 1024px) {
-      #concept .concept-bg__light-gray {
-        height: 291.5px; } }
-    @media (max-width: 599px) {
-      #concept .concept-bg__light-gray {
-        height: 176px; } }
-  #concept .concept-bg__dark-gray {
-    height: 560px;
-    background-color: #A1938689; }
-    @media (max-width: 1024px) {
-      #concept .concept-bg__dark-gray {
-        height: 547.5px; } }
-    @media (max-width: 599px) {
-      #concept .concept-bg__dark-gray {
-        height: 535px; } }
-  #concept .concept-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0; }
+  background: linear-gradient(to bottom, #A193861F 0 40%, #A1938689 40% 100%); }
+  @media (max-width: 1024px) {
+    #concept {
+      background: linear-gradient(to bottom, #A193861F 0 32.5%, #A1938689 32.5% 100%); } }
+  @media (max-width: 599px) {
+    #concept {
+      background: linear-gradient(to bottom, #A193861F 0 25%, #A1938689 25% 100%); } }
   #concept .concept-img__wrap {
     display: flex;
     justify-content: space-between; }

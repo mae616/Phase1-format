@@ -1,43 +1,28 @@
 #concept{
-    position: relative;
-
-    // background
-    .concept-bg__light-gray{
-        height: 407px;
-        background-color: $bg-light-gray;
-
-        @include tab {
-            // 407pxと176pxの中間
-            height: 291.5px;
-        }
-
-        @include sp {
-            height: 176px;
-        }
+    // 407px(ライトグレー) / 407px + 560px(ダークグレー)
+    // = 約40%
+    background: 
+        linear-gradient(to bottom, 
+                        $bg-light-gray 0 40%, 
+                        $bg-dark-gray 40% 100%);
+ 
+    @include tab{
+        // 約40% と 約25% の中間
+        background: 
+            linear-gradient(to bottom, 
+                            $bg-light-gray 0 32.5%, 
+                            $bg-dark-gray 32.5% 100%);
     }
 
-    .concept-bg__dark-gray{
-        height: 560px;
-        background-color: #A1938689;
-        
-        @include tab {
-            // 560pxと535pxの中間
-            height: 547.5px;
-        }
-
-        @include sp {
-            height: 535px;
-        }
+    @include sp{
+        // 176px(ライトグレー) / 176px + 565px(ダークグレー)
+        // = 約25%
+        background: 
+            linear-gradient(to bottom, 
+                            $bg-light-gray 0 25%, 
+                            $bg-dark-gray 25% 100%);
     }
-
-    // coutent
-    .concept-inner{
-        position: absolute;
-        top: 0;
-        left: 0;    // _lib.scss innerのmargin: ? autoをつけるため
-        right: 0;   // _lib.scss innermargin: ? autoをつけるため
-    }
-
+ 
     .concept-img__wrap{
         display: flex;
         justify-content: space-between;
