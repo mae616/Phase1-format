@@ -5,12 +5,28 @@
     background-size: contain;
     background-repeat: no-repeat;
 
+    @include tab{
+        background-position: 0 0;
+        background-size: cover;
+        // 800pxと600pxの中間
+        height: 700px;
+    }
+
+    @include sp{
+        height: 600px;
+    }
+
+
     .first-v__wrap{
         // 594px / 1282px(画面サイズ)
         width: 46%;
         height: 100%;
         padding-top: 106px; // headerの高さ(.catch-wrapをheader後する為)
         position: relative;
+
+        @include tab{
+            width: 100%; 
+        }
 
         .catch-wrap{
             // 390px / 1282px(画面サイズ)
@@ -22,9 +38,33 @@
             transform: translate(-50%, -50%);
             text-align: center;
             font-size: 3.8rem;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
 
-            .catch-ja{
-                margin-bottom: 48px;
+            @include tab{
+                flex-direction: column-reverse;
+                color: #fff;
+                // 288px/ 375px(画面サイズ)
+                width: 75vw;
+
+                .catch-ja{
+                    // spに合わせて少し小さく
+                    font-size: 3.3rem;
+                }
+            }
+
+            @include sp{
+                height: 118px;
+
+                .catch-en{
+                    font-size: 2.8rem;
+                }
+
+                .catch-ja{
+                    font-size: 2.3rem;
+                }
+
             }
         }
     }

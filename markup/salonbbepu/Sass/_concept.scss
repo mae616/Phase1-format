@@ -5,11 +5,29 @@
     .concept-bg__light-gray{
         height: 407px;
         background-color: $bg-light-gray;
+
+        @include tab {
+            // 407pxと176pxの中間
+            height: 291.5px;
+        }
+
+        @include sp {
+            height: 176px;
+        }
     }
 
     .concept-bg__dark-gray{
         height: 560px;
         background-color: #A1938689;
+        
+        @include tab {
+            // 560pxと535pxの中間
+            height: 547.5px;
+        }
+
+        @include sp {
+            height: 535px;
+        }
     }
 
     // coutent
@@ -28,15 +46,44 @@
             height: 413px;
             // 390px(画像サイズ) / 1282px(画面サイズ)
             width: 30.5vw;
+            flex-grow: 1;
+
+            @include tab{
+                // 413pxと205pxの中間
+                height: 309px;
+                // 277px(390pxと164pxの中間) / 600px(画面サイズ)
+                width: 43vw;
+            }
+
+            @include sp{
+                height: 205px; 
+                // 164px / 375px(画面サイズ) = width: 43vw
+            }
+
 
             &:nth-of-type(1){
                 // 675px(画像サイズ) / 1282px(画面サイズ)
                 width: 53vw;
+                // 10px / 1282px(画面サイズ)
+                margin-right: 1vw;
+                flex-grow: 1.7;
+
+                @include tab{
+                    width: 43vw;
+                    margin-right: 1.8vw;
+                    flex-grow: 1;
+                }
+
+                @include sp{
+                    // 7px / 375px(画面サイズ)
+                    margin-right: 1.8vw;
+                }
             }
 
             img{
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
     }
@@ -48,19 +95,52 @@
         justify-content: space-between;
         // 1001px(コンテンツサイズ) / 1282px(画面サイズ)
         width: 78vw;
-        margin: 65px auto 65px;
+        margin: 65px auto 0;
+
+        @include tab{
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
 
         .concept-catch{
-            margin-top: 5px ;
             font-size: 4rem;
             //450px / 1282px(画面サイズ)
             width: 33vw;
+            margin-top: 5px;
+            
+            @include tab{
+                margin-top: 0;
+            }
+
+            
+
+            @include tab{
+                // 200px / 375px(画面サイズ)
+                width: 55vw;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            @include sp{
+                font-size: 1.8rem;
+            }
         }
 
         .concept-txt{
             font-size: 1.6rem;
             // 496px / 1282px(画面サイズ)
             width: 40vw;
+
+            @include tab{
+                width: 80vw;
+            }
+
+            @include sp{
+                // 333px / 375px(画面サイズ)
+                width: 90vw;
+                font-size: 1.6rem;
+            }
         }
     }
 }

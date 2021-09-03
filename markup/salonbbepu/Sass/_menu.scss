@@ -1,16 +1,35 @@
 #menu{
     height: 921px;
 
+    @include tab{
+        height: auto;
+    }
+
     .menu-wrap{
         display: flex;
         justify-content: space-between;
+
+        @include tab{
+            flex-direction: column;
+        }
 
         .menu-item{
             display: flex;
             justify-content: space-between;
             flex-direction: column;
-            width: 20vw;
+            max-width: 20vw;
             height: 555px;
+            margin-right: 2vw;
+
+            &:nth-last-of-type(1){
+                margin-right: 0;
+            }
+
+            @include tab{
+                max-width: 100%;
+                margin-bottom: 60px;
+                margin-right: 0;
+            }
 
             &__img{
                 // 270px / 1282px(画面サイズ)
@@ -27,6 +46,10 @@
             &__title{
                 font-size: 3rem;
                 text-align: center;
+
+                @include sp{
+                    text-align: left;
+                }
             }
 
             &__txt, &__price{

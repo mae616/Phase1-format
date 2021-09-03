@@ -3,24 +3,76 @@ header{
 
     display: flex;
     align-items: center;
+
     position: absolute;
-    z-index: 20;
     top: 70px;
+    z-index: 20;
     // 77px / 1282px(画面サイズ)
     padding-left: 6%;
 
+    @include tab{
+        padding-left: 0;
+        position: relative;
+        top: 0;
+        z-index: auto;
+        justify-content: space-between;
+
+    }
+
     .hd-logo{
         font-size: 3.8rem;
+
+        @include tab{
+            // 21px / 375px (画面サイズ) =6vw
+            margin: 25px auto 25px 6vw;
+        }
+
+        @include sp{
+            font-size: 2.2rem;
+        }
     }
 
     .ham{
         display: none;
+
+        @include tab{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+            margin-right: 6vw; // 21px / 375px (画面サイズ)
+
+            span{
+                display: inline-block;
+                width: 100%;
+                height: 2px;
+                background-color: #3B4043;
+
+                &:nth-of-type(3){
+                    width: 60%;
+                }
+            }
+        }
+
+        @include sp{
+            width: 15px;
+            height: 15px;
+        }
     }
 
     .pc-menu{
         // 381px(pc-menuサイズ) / 1282px (画面サイズ)
         width: 30%;
         font-size: 1.8rem;
+
+        @include tab{
+            display: none;
+        }
 
         ul{
             display: flex;

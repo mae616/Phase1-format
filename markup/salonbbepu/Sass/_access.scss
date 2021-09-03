@@ -1,9 +1,30 @@
 #access{
     background-color: $bg-light-gray;
 
+    @include sp{
+        .access-inner{
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .access-title{
+            width: $sp-width;
+            margin-left:  auto;
+            margin-right:  auto;
+        }
+    }
+
+
     .access-wrap{
         display: flex;
         height: 400px;
+
+        @include tab{
+            height: auto;
+            flex-direction: column-reverse;
+            width: 100%;
+        }
 
         .access-txt__wrap{
             background-color: #D0C5BA;
@@ -11,13 +32,29 @@
             width: 40vw;
             position: relative;
 
-            
+            @include tab{
+                position: static;
+                width: 100%;
+                height: 282px; 
+            }
+
             .access-txt{
+                height: 200px;
                 position: absolute;
                 top: 50%;
                 left: 8vw; // 100px / 1282px(画面サイズ)
                 transform: translate(0, -50%);
-                height: 200px;
+
+                @include tab{
+                    position: static;
+                    transform: none;
+                    margin: 30px auto 0;
+                    width: 90%;
+                }
+
+                @include sp{
+                   width: $sp-width;
+                }
 
                 .store-name{
                     color: #00000038;
@@ -43,9 +80,21 @@
             width: 60.5vw;
             height: 100%;
 
-            img{
+            @include tab{
+                width: 100%;
+                // 400pxと235pxの中間
+                height: 317.5px;
+            }
+
+            @include sp{
+                width: 100%;
+                height: 235px;
+            }
+
+            iframe{
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
     }
