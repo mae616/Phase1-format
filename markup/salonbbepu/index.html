@@ -8,20 +8,32 @@
     <title>SALON BEPPU</title>
     <link rel="stylesheet" href="./css/main.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('.menu li a').on('click', function (event) {
+                $('#ham-open').prop('checked', false);
+            });
+        });
+    </script>
 </head>
 
 <body>
     <!-- header -->
     <header>
-        <h1 class="hd-logo">SALON BEPPU</h1>
+        <h1 class="hd-logo"><a href=".">SALON BEPPU</a></h1>
 
-        <nav class="ham">
-            <span></span>
-            <span></span>
-            <span></span>
-        </nav>
+        <input id="ham-open" type="checkbox">
+        <label class="ham-button" for="ham-open">
+            <div class="ham">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </label>
 
-        <nav class="pc-menu">
+        <nav class="menu">
             <ul>
                 <li><a href="#menu-title">MENU</a></li>
                 <li><a href="#concept-title">CONCEPT</a></li>

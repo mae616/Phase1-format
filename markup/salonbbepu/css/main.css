@@ -136,23 +136,30 @@ header {
   align-items: center;
   position: absolute;
   top: 70px;
-  z-index: 20;
-  padding-left: 6%; }
+  z-index: 1;
+  padding-left: 6%;
+  /* ハンバーガーメニュー */
+  /* Pcメニュー、ハンバーガーメニュー共通 */ }
   @media (max-width: 1024px) {
     header {
+      height: 12vh;
       padding-left: 0;
       position: relative;
       top: 0;
-      z-index: initial;
       justify-content: space-between; } }
   header .hd-logo {
     font-size: 3.8rem; }
     @media (max-width: 1024px) {
       header .hd-logo {
-        margin: 4vh auto 4vh 6vw; } }
+        position: absolute;
+        top: 50%;
+        left: 6vw;
+        transform: translate(0, -50%); } }
     @media (max-width: 599px) {
       header .hd-logo {
         font-size: 2.2rem; } }
+  header #ham-open {
+    display: none; }
   header .ham {
     display: none; }
     @media (max-width: 1024px) {
@@ -160,12 +167,13 @@ header {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        width: 25px;
-        height: 25px;
+        width: 27px;
+        height: 27px;
         position: absolute;
         top: 50%;
         right: 0;
         transform: translate(0, -50%);
+        z-index: 1;
         margin-right: 6vw; }
         header .ham span {
           display: inline-block;
@@ -178,31 +186,82 @@ header {
       header .ham {
         width: 15px;
         height: 15px; } }
-  header .pc-menu {
+  header .menu {
     width: 30%;
     font-size: 1.8rem;
     color: #707070; }
     @media (max-width: 1024px) {
-      header .pc-menu {
+      header .menu {
         display: none; } }
-    header .pc-menu ul {
+    header .menu ul {
       display: flex;
       justify-content: space-between; }
-      header .pc-menu ul li {
+      @media (max-width: 1024px) {
+        header .menu ul {
+          flex-direction: column; } }
+      header .menu ul li {
         margin-left: 20px;
-        line-height: 0.9;
-        transition: color 0.3s; }
-        header .pc-menu ul li::after {
+        line-height: 0.9; }
+        header .menu ul li::after {
           background-color: #000;
           content: "";
           display: block;
           height: 1px;
           width: 0;
           transition: width 0.3s; }
-        header .pc-menu ul li:hover {
-          color: #000; }
-          header .pc-menu ul li:hover::after {
-            width: 100%; }
+          @media (max-width: 1024px) {
+            header .menu ul li::after {
+              display: none; } }
+        @media (min-width: 1025px) {
+          header .menu ul li {
+            transition: color 0.3s; }
+            header .menu ul li:hover {
+              color: #000; }
+              header .menu ul li:hover::after {
+                width: 100%; } }
+  header #ham-open:checked ~ .ham-button > .ham {
+    display: block; }
+    @media (max-width: 1024px) {
+      header #ham-open:checked ~ .ham-button > .ham span {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%); }
+        header #ham-open:checked ~ .ham-button > .ham span:nth-child(1) {
+          transform: rotate(45deg); }
+        header #ham-open:checked ~ .ham-button > .ham span:nth-child(2) {
+          transform: rotate(-45deg); }
+        header #ham-open:checked ~ .ham-button > .ham span:nth-child(3) {
+          display: none; } }
+  @media (max-width: 1024px) {
+    header #ham-open:checked ~ .menu {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 12vh;
+      right: 0;
+      z-index: -1;
+      background-color: #D0C5BA;
+      animation: 0.5s fadeIn; }
+    @keyframes fadeIn {
+      from {
+        opacity: 0; }
+      to {
+        opacity: 1; } } }
+  @media (max-width: 1024px) {
+    header #ham-open:checked ~ .menu ul {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      height: 80%; } }
+  @media (max-width: 1024px) {
+    header #ham-open:checked ~ .menu ul li a {
+      display: block;
+      line-height: 3.8; } }
 
 #first-v {
   height: 100vh;

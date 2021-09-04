@@ -1,3 +1,6 @@
+// 70px / 597px (画面高さ) = 12vh
+$header-height: 12vh;
+
 header{
     width: 100%;
 
@@ -6,15 +9,15 @@ header{
 
     position: absolute;
     top: 70px;
-    z-index: 20;
+    z-index: 1;
     // 77px / 1282px(画面サイズ)
     padding-left: 6%;
 
     @include tab{
+        height: $header-height;
         padding-left: 0;
-        position: relative; // hamの為
+        position: relative; // .hamの為
         top: 0;
-        z-index: initial;
         justify-content: space-between;
 
     }
@@ -25,12 +28,21 @@ header{
         @include tab{
             // 25px(上下余白) / 597px (画面高さ) =4vh
             // 21px(左余白) / 375px (画面横幅) =6vw
-            margin: 4vh auto 4vh 6vw;
+            position: absolute;
+            top: 50%;
+            left: 6vw;
+            transform: translate(0, -50%);
+
         }
 
         @include sp{
             font-size: 2.2rem;
         }
+    }
+
+    /* ハンバーガーメニュー */
+    #ham-open{  // 開閉の隠しチェックボックス
+        display: none;
     }
 
     .ham{
@@ -40,12 +52,13 @@ header{
             display: flex;
             justify-content: space-between;
             flex-direction: column;
-            width: 25px;
-            height: 25px;
+            width: 27px;
+            height: 27px;
             position: absolute;
             top: 50%;
             right: 0;
             transform: translate(0, -50%);
+            z-index: 1;
             margin-right: 6vw; // 21px / 375px (画面サイズ)
 
             span{
@@ -66,13 +79,15 @@ header{
         }
     }
 
-    .pc-menu{
+    /* Pcメニュー、ハンバーガーメニュー共通 */
+    .menu{
         // 381px(pc-menuサイズ) / 1282px (画面サイズ)
         width: 30%;
         font-size: 1.8rem;
         color: $font-dark-gray;
 
         @include tab{
+            // ハンバーガーメニュー閉じてる時
             display: none;
         }
 
@@ -80,10 +95,14 @@ header{
             display: flex;
             justify-content: space-between;
 
+            @include tab{
+                // ハンバーガーメニュー閉じてる時
+                flex-direction: column;
+            }
+
             li{
                 margin-left: 20px;
                 line-height: 0.9;
-                transition: color 0.3s;
 
                 &::after{
                     background-color: #000;
@@ -92,16 +111,91 @@ header{
                     height: 1px;
                     width: 0;
                     transition: width 0.3s;
+
+                    @include tab{
+                        display: none;
+                    }
                 }
 
-                &:hover{
-                    color: #000;
+                @include pc{
+                    transition: color 0.3s;
 
-                    &::after{
-                        width: 100%;
+                    &:hover{
+                        color: #000;
+
+                        &::after{
+                            width: 100%;
+                        }
                     }
                 }
             }
         }
+    }
+
+    #ham-open:checked ~ .ham-button > .ham{
+        // ハンバーガーメニュー閉じるボタン
+        display: block;
+
+        @include tab{
+            span{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(0, -50%);
+
+                &:nth-child(1){
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2){
+                    transform: rotate(-45deg);
+                }
+
+                &:nth-child(3){
+                    display: none;
+                }
+            }
+       }
+    }
+
+    #ham-open:checked ~ .menu{
+        // ハンバーガーメニュー開いている時のメニュー
+        @include tab{
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: $header-height;
+            right: 0;
+            z-index: -1;
+            background-color: #D0C5BA;
+ 
+            animation: 0.5s fadeIn;
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+       ul{
+            @include tab{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                width: 100%;
+                height: 80%;
+            }
+
+            li{
+                a{
+                    @include tab{
+                        display: block;
+                        line-height: 3.8;
+                    }
+                }
+            }
+       }
     }
 }
