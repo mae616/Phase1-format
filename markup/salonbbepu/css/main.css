@@ -268,7 +268,7 @@ header {
   height: 100vh;
   background-image: url("../img/Blond woman with long curly beautiful hair_2x.png");
   background-position: right;
-  background-size: 54%;
+  background-size: 54% 100%;
   background-repeat: no-repeat; }
   @media (max-width: 1024px) {
     #first-v {
