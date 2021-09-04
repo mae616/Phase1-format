@@ -105,7 +105,8 @@ html {
 
 body {
   font-size: 12px;
-  line-height: 1.67; }
+  line-height: 1.67;
+  font-family: "Roboto Mono", sans-serif; }
 
 .inner {
   width: 85vw;
@@ -297,16 +298,23 @@ header {
         #first-v .first-v__wrap .catch-wrap {
           flex-direction: column-reverse;
           color: #fff;
-          width: 75vw; }
-          #first-v .first-v__wrap .catch-wrap .catch-ja {
-            font-size: 3.3rem; } }
+          width: 75vw; } }
       @media (max-width: 599px) {
         #first-v .first-v__wrap .catch-wrap {
-          height: 118px; }
-          #first-v .first-v__wrap .catch-wrap .catch-en {
-            font-size: 2.8rem; }
+          height: 118px; } }
+      #first-v .first-v__wrap .catch-wrap .catch-ja {
+        font-family: "ヒラギノ明朝 Pro W3", serif; }
+        @media (max-width: 1024px) {
+          #first-v .first-v__wrap .catch-wrap .catch-ja {
+            font-size: 3.3rem; } }
+        @media (max-width: 599px) {
           #first-v .first-v__wrap .catch-wrap .catch-ja {
             font-size: 2.3rem; } }
+      #first-v .first-v__wrap .catch-wrap .catch-en {
+        font-family: "Zapfino", "Kunstler Script", "Times New Roman", cursive; }
+        @media (max-width: 599px) {
+          #first-v .first-v__wrap .catch-wrap .catch-en {
+            font-size: 2.8rem; } }
 
 #concept {
   background: linear-gradient(to bottom, #A193861F 0 40%, #A1938689 40% 100%); }
@@ -357,6 +365,7 @@ header {
         align-items: center;
         margin-top: 50px; } }
     #concept .concept-desc__wrap .concept-catch {
+      font-family: "ヒラギノ明朝 Pro W3", serif;
       font-size: 4rem;
       width: 33vw;
       margin-top: 5px; }
@@ -372,6 +381,7 @@ header {
         #concept .concept-desc__wrap .concept-catch {
           font-size: 1.8rem; } }
     #concept .concept-desc__wrap .concept-txt {
+      font-family: "ヒラギノ角ゴ Pro W3", sans-serif;
       font-size: 1.6rem;
       width: 40vw; }
       @media (max-width: 1024px) {

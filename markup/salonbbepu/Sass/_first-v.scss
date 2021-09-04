@@ -43,24 +43,31 @@
                 color: #fff;
                 // 288px/ 375px(画面サイズ)
                 width: 75vw;
-
-                .catch-ja{
-                    // spに合わせて少し小さく
-                    font-size: 3.3rem;
-                }
             }
 
             @include sp{
                 height: 118px;
+            }
 
-                .catch-en{
-                    font-size: 2.8rem;
+            .catch-ja{
+                font-family: $font-catch-ja;
+
+                @include tab{
+                    // spに合わせて少し小さく
+                    font-size: 3.3rem;
                 }
 
-                .catch-ja{
+                @include sp{
                     font-size: 2.3rem;
                 }
+            }
 
+            .catch-en{
+                font-family: "Zapfino", "Kunstler Script", "Times New Roman", cursive;
+            
+                @include sp{
+                    font-size: 2.8rem;
+                }
             }
         }
     }
