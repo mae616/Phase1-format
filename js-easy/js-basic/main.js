@@ -1,44 +1,28 @@
-// 真偽値 (if文のより厳密な挙動)
+// 条件式の書き方
 
-if (true) {
-    console.log('条件はtrueです!')
-}
+const a = 2
+const b = 3
+const c = 10
+const d = 10
 
-const num = Math.random()
+// X === Y
+// XとYが等しいとみなされる際にtrueになる
 
-// 原則、if文は、条件式がtrueの場合に実行される。
-// if (num >= 0.5) {
-//     console.log('条件はtrueです!')
-// } else {
-//     console.log('条件はfalseです!')
-// }
+console.log(a === b) // false
+console.log(c === d) // true
 
+// a >= b 左辺が右辺以上の際にtrueを返す
 
-// 実行される
-// if ('abcde') {
-//     console.log('このプログラムは実行される!')
-// }
+// &(アンパーサンド)
+console.log(a === b && c === d) // => false
+// A && B => AがtrueかつBがtrueの場合、trueになる
 
-// if (1000) {
-//     console.log('このプログラムは実行される!')
-// }
+// |(バーティカルバー)
+console.log(a === b || c === d) // => true
+// A || B => AがtrueまたはBがtrueの場合、trueになる
 
-// if (-100) {
-//     console.log('このプログラムは実行される!')
-// }
+console.log(!(a === b))
+// => 真偽値を逆転させたいとき使う
 
-if ([]) {
-    console.log('このプログラムは実行される!')
-}
-
-// 実行されない
-// if (0) {
-//     console.log('このプログラムは実行される!')
-// }
-
-// if ('') {
-//     console.log('このプログラムは実行される!')
-// }
-
-// falsy (フォルシー)　フォルシーな値
-// 条件式でfalseとみなされる値 => 0, ""(空文字列)
+console.log(!true)
+console.log(!false)
