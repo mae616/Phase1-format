@@ -1,13 +1,44 @@
-const num = Math.random() // Math.random() => 0から1までのランダムな数を返してくれるプログラム
+// 真偽値 (if文のより厳密な挙動)
 
-if (num >= 0.5) { // numが0.5以上である場合
-    console.log('大きめ')
-} else {
-    console.log('小さめ')
+if (true) {
+    console.log('条件はtrueです!')
 }
 
-console.log(`数: ${num}`)
+const num = Math.random()
 
-//-------------------
-// 実行したいのが一行の場合こういう書き方もできる
-if (num >= 0.5) console.log('大きめ')
+// 原則、if文は、条件式がtrueの場合に実行される。
+// if (num >= 0.5) {
+//     console.log('条件はtrueです!')
+// } else {
+//     console.log('条件はfalseです!')
+// }
+
+
+// 実行される
+// if ('abcde') {
+//     console.log('このプログラムは実行される!')
+// }
+
+// if (1000) {
+//     console.log('このプログラムは実行される!')
+// }
+
+// if (-100) {
+//     console.log('このプログラムは実行される!')
+// }
+
+if ([]) {
+    console.log('このプログラムは実行される!')
+}
+
+// 実行されない
+// if (0) {
+//     console.log('このプログラムは実行される!')
+// }
+
+// if ('') {
+//     console.log('このプログラムは実行される!')
+// }
+
+// falsy (フォルシー)　フォルシーな値
+// 条件式でfalseとみなされる値 => 0, ""(空文字列)
