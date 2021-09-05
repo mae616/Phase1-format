@@ -1,30 +1,13 @@
-// const learning = 'JavaScript'
+// 配列
 
-// // ! constは再代入ができない
-// learning = 'Ruby'
+const days = ['日', '月', '火', '水', '木', '金', '土']
 
-// console.log(learning)
+// 全体
+console.log(days)
 
-//----------------
-// let learning = 'JavaScript'
+// 一部
+console.log(days[3]) // 水 => [](ブラケット)の中にインデックスを指定して配列の要素を取得
 
-// // ! letは再代入できる
-// learning = 'Ruby'
+console.log(['日', '月', '火', '水', '木', '金', '土'].length)
 
-// console.log(learning)
-
-//----------------
-// // ! constは変数を必ず初期化する必要がある！
-// const learning 
-
-// learning = 'Ruby'
-
-// console.log(learning)
-
-//----------------
-// ! letは初期化しなくてもOK!
-let learning
-
-learning = 'Ruby'
-
-console.log(learning)
+console.log(days.length)
