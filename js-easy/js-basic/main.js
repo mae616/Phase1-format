@@ -1,28 +1,29 @@
-// 条件式の書き方
+// for文(フォア文)
 
-const a = 2
-const b = 3
-const c = 10
-const d = 10
+// for (let i = 0; i < 10; i++) {
+//     console.log(i)
+// }
 
-// X === Y
-// XとYが等しいとみなされる際にtrueになる
+// consoleに0から9までの値を表示する
 
-console.log(a === b) // false
-console.log(c === d) // true
+// for (初期化処理; 継続条件; 更新処理){
+// 繰り返したい処理
+// }
 
-// a >= b 左辺が右辺以上の際にtrueを返す
+// 1. 変数iに0を代入(初期化処理の実行)
+// 2. i<10は満たしているか？(継続条件を評価)　満たしていない場合は終了
+// 3. ブロック内の処理を実行
+// 4. iに1可算代入する(i ==== 1)
+// 5. 2に戻る
 
-// &(アンパーサンド)
-console.log(a === b && c === d) // => false
-// A && B => AがtrueかつBがtrueの場合、trueになる
+// while文(フォワイル文)
 
-// |(バーティカルバー)
-console.log(a === b || c === d) // => true
-// A || B => AがtrueまたはBがtrueの場合、trueになる
+let i = 0
+while (i < 10) {
+    console.log(i)
+    i++
+}
 
-console.log(!(a === b))
-// => 真偽値を逆転させたいとき使う
-
-console.log(!true)
-console.log(!false)
+// while (継続条件) {
+//     繰り返したい処理
+// }
