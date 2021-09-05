@@ -1,23 +1,21 @@
-// こんにちは、世界！
-// console.log('Hello, World!')
+// // 文字列処理
+// 'これは文字列です。'
+// "これも文字列です。"
 
-// 値
+// 'I'm Beppu Takemitsu.'
 
-// 数値
-// console.log(100)
-// console.log(1.5)
-// console.log(-1)
+// 文字列の結合
+const breakfast = "トースト"
 
-// 文字列
-// console.log('Hello!')
-// console.log('ありがとう!')
+// console.log("今日の朝ごはんは" + breakfast + "でした。")
 
-// 配列
-// console.log([1, 2, 3, 4, 5])
+// テンプレート文字列
 
-// 真偽値(しんぎち)
-// console.log(true)
-// console.log(false)
+// console.log(`今日の朝ごはんは${breakfast}でした。`)
 
-// オブジェクト
-// console.log({ one: 1, two: 2 })
+//-------------------------
+// 改行
+console.log("今日の朝ごはんは" + breakfast + "でした。\nとても美味しかった。")
+
+console.log(`今日の朝ごはんは${breakfast}でした。
+とても美味しかった。`)
