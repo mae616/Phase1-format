@@ -1,13 +1,42 @@
-// 配列
+// 配列の操作
 
-const days = ['日', '月', '火', '水', '木', '金', '土']
+// const nengou = ['明治', '大正', '昭和', '平成']
+// console.log(nengou)
 
-// 全体
-console.log(days)
+// // 要素の追加
+// nengou.push('令和')
 
-// 一部
-console.log(days[3]) // 水 => [](ブラケット)の中にインデックスを指定して配列の要素を取得
+// console.log(nengou) // => ["明治", "大正", "昭和", "平成", "令和"]
 
-console.log(['日', '月', '火', '水', '木', '金', '土'].length)
+// nengou.splice(3, 1) // 配列.splice(削除したい要素のインデックス, 削除したい要素の個数)
 
-console.log(days.length)
+// console.log(nengou) // => ["明治", "大正", "昭和", "令和"]
+
+// nengou.splice(2, 2) // 配列.splice(削除したい要素のインデックス, 削除したい要素の個数)
+
+// console.log(nengou) // =>  ["明治", "大正"]
+// -------------------------------
+
+const nengou = ['明治', '大正', '昭和', '平成']
+console.log(nengou)
+
+// 要素の変更
+nengou[2] = 'showa'
+
+console.log(nengou) // ["明治", "大正", "showa", "平成"]
+
+
+
+
+
+
+// -------------------------------
+// 自分で勝手にやったの
+// const nengou = ['明治', '大正', '昭和', '平成']
+// console.log(nengou)
+
+// // 要素の追加（要素数が返る）
+// const nengou2 = nengou.push('令和')
+
+// console.log(nengou) // =>追加されたの
+// console.log(nengou2) // =>追加された後の要素数
