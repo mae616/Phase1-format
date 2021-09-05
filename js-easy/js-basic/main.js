@@ -1,21 +1,18 @@
-// // 文字列処理
-// 'これは文字列です。'
-// "これも文字列です。"
+// 変数
 
-// 'I'm Beppu Takemitsu.'
+// const myName = 'Beppu'
+// const 名前 = 値
 
-// 文字列の結合
-const breakfast = "トースト"
+// console.log(myName)
 
-// console.log("今日の朝ごはんは" + breakfast + "でした。")
+// 変数myNameに値'Beppu'を代入する
 
-// テンプレート文字列
+const number = 100
+const isValid = true
+const userIds = [1, 3, 10]
 
-// console.log(`今日の朝ごはんは${breakfast}でした。`)
+console.log(number)
+console.log(isValid)
+console.log(userIds)
 
-//-------------------------
-// 改行
-console.log("今日の朝ごはんは" + breakfast + "でした。\nとても美味しかった。")
-
-console.log(`今日の朝ごはんは${breakfast}でした。
-とても美味しかった。`)
+// どんな型でも変数にはいる
