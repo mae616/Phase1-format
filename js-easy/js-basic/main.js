@@ -1,18 +1,30 @@
-// 変数
+// const learning = 'JavaScript'
 
-// const myName = 'Beppu'
-// const 名前 = 値
+// // ! constは再代入ができない
+// learning = 'Ruby'
 
-// console.log(myName)
+// console.log(learning)
 
-// 変数myNameに値'Beppu'を代入する
+//----------------
+// let learning = 'JavaScript'
 
-const number = 100
-const isValid = true
-const userIds = [1, 3, 10]
+// // ! letは再代入できる
+// learning = 'Ruby'
 
-console.log(number)
-console.log(isValid)
-console.log(userIds)
+// console.log(learning)
 
-// どんな型でも変数にはいる
+//----------------
+// // ! constは変数を必ず初期化する必要がある！
+// const learning 
+
+// learning = 'Ruby'
+
+// console.log(learning)
+
+//----------------
+// ! letは初期化しなくてもOK!
+let learning
+
+learning = 'Ruby'
+
+console.log(learning)
