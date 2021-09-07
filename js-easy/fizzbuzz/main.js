@@ -1,9 +1,10 @@
 let i = 0
 
-const rewriteNum = document.getElementById('rewriteNum')
-rewriteNum.textContent = i
+const showNum = document.getElementById('showNum')
+showNum.textContent = i
 
-function rewriteCntUp() {
+// fizzBuzzの正解の値
+function correctFizzbBuzz() {
 
     i++
 
@@ -21,8 +22,42 @@ function rewriteCntUp() {
         fizzBuzzTxt = 'fizz'
 
     } else if (isBuzz) {
-        fizzBuzzTxt = 'buss'
+        fizzBuzzTxt = 'buzz'
     }
 
-    rewriteNum.textContent = fizzBuzzTxt
+    return fizzBuzzTxt
+}
+
+function answerFizzbBuzz(correct) {
+    return isNaN(correct) ? correct : 'number'
+}
+
+
+function commonButtonClick(response) {
+
+    const fizzBuzzTxt = correctFizzbBuzz()
+
+    if (response === answerFizzbBuzz(fizzBuzzTxt)) {
+        showNum.textContent = fizzBuzzTxt
+    } else {
+        alert('ちがいます')
+        location.reload();
+    }
+
+}
+
+function fizzBtn() {
+    commonButtonClick('fizz')
+}
+
+function buzzBtn() {
+    commonButtonClick('buzz')
+}
+
+function fizzbuzzBtn() {
+    commonButtonClick('fizzbuzz')
+}
+
+function numBtn() {
+    commonButtonClick('number')
 }
