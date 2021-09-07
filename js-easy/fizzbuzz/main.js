@@ -1,63 +1,48 @@
-let i = 0
+let i = 0;
 
-const showNum = document.getElementById('showNum')
-showNum.textContent = i
+const showNum = document.getElementById('showNum');
+showNum.textContent = i;
 
-// fizzBuzzの正解の値
-function correctFizzbBuzz() {
+const fizzBtn = function () {
+    i++;
 
-    i++
-
-    const isFizz = i % 3 === 0    // 3の倍数
-    const isBuzz = i % 5 === 0    // 5の倍数
-
-    // fizz、buzz、fizzbuzz以外の場合
-    let fizzBuzzTxt = i
-
-    // 3と5の公倍数
-    if (isFizz && isBuzz) {
-        fizzBuzzTxt = 'fizzbuzz'
-
-    } else if (isFizz) {
-        fizzBuzzTxt = 'fizz'
-
-    } else if (isBuzz) {
-        fizzBuzzTxt = 'buzz'
-    }
-
-    return fizzBuzzTxt
-}
-
-function answerFizzbBuzz(correct) {
-    return isNaN(correct) ? correct : 'number'
-}
-
-
-function commonButtonClick(response) {
-
-    const fizzBuzzTxt = correctFizzbBuzz()
-
-    if (response === answerFizzbBuzz(fizzBuzzTxt)) {
-        showNum.textContent = fizzBuzzTxt
+    if (i % 3 === 0) {
+        showNum.textContent = 'fizz'
     } else {
         alert('ちがいます')
         location.reload();
     }
-
 }
 
-function fizzBtn() {
-    commonButtonClick('fizz')
+const buzzBtn = function () {
+    i++;
+
+    if (i % 5 === 0) {
+        showNum.textContent = 'buzz'
+    } else {
+        alert('ちがいます')
+        location.reload();
+    }
 }
 
-function buzzBtn() {
-    commonButtonClick('buzz')
+const fizzbuzzBtn = function () {
+    i++;
+
+    if (i % 3 === 0 && i % 5 === 0) {
+        showNum.textContent = 'fizzbuzz'
+    } else {
+        alert('ちがいます')
+        location.reload();
+    }
 }
 
-function fizzbuzzBtn() {
-    commonButtonClick('fizzbuzz')
-}
+const numBtn = function () {
+    i++;
 
-function numBtn() {
-    commonButtonClick('number')
+    if (i % 3 === 0 || i % 5 === 0) {
+        alert('ちがいます')
+        location.reload();
+    } else {
+        showNum.textContent = i
+    }
 }
