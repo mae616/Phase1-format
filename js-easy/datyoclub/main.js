@@ -2,11 +2,10 @@ let count = 0;
 
 const cntUp = function () {
     count++;
-    console.log(count);
 }
 
 const reply = function () {
-    const msgTxt = 'どうぞどうぞ';
-    alert(msgTxt.repeat(count));
+    const action = Array(1 * count + 1).join('どうぞどうぞ');
+    alert(action);
     count = 0;
 }
