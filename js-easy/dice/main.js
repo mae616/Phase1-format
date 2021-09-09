@@ -1,102 +1,76 @@
-// 解答例
-const startBtn = document.getElementById('diceBtn');
-const body = document.querySelector('body');
-const dice = document.createElement('img');
-dice.style.width = '100px';
-dice.style.height = '100px';
+let isRolledPlayer1 = false;  // サイコロ実行済み
+let isRolledPlayer2 = false;  // サイコロ実行済み
 
-let diceNum = './img/saikoro1.png';
-dice.setAttribute('src', diceNum);
-body.appendChild(dice);
+// result
+const result = document.getElementById('result');
+const defaultResult = '???';
 
-let count = 0;
-let timer_g;
+// img
+const dicePlayer1 = document.getElementById('setPlayer1dice');
+const dicePlayer2 = document.getElementById('setPlayer2dice');
 
-startBtn.addEventListener('click', function () {
+let diceNumPlayer1 = 1;
+dicePlayer1.setAttribute('src', `./img/saikoro${diceNumPlayer1}.png`);
+let diceNumPlayer2 = 1;
+dicePlayer2.setAttribute('src', `./img/saikoro${diceNumPlayer2}.png`);
 
-    clearInterval(timer_g);
-    count = 0;
-    let timer = setInterval('random()', 100);
+// ボタン
+const btnPlayer1 = document.getElementById('player1Btn');
+const btnPlayer2 = document.getElementById('player2Btn');
+
+btnPlayer1.addEventListener('click', function () {
+    btnPlayer1.disabled = true;
+    result.textContent = defaultResult;
+
+    let timer = setInterval(function () {
+        diceNumPlayer1 = random(dicePlayer1)
+    }, 100);
 
     setTimeout(() => {
-        console.log("☆" + timer);
         clearInterval(timer);
-    }, 3000);
-    console.log("★" + timer);
-    timer_g = timer;
+
+        isRolledPlayer1 = true;
+        if (isRolledPlayer1 && isRolledPlayer2) {
+            displayResult();
+        }
+    }, 3000)
 });
 
-const random = function () {
-    console.log(count++);
-    diceNum = `./img/saikoro${Math.floor(Math.random() * 6 + 1)}.png`;
-    dice.setAttribute('src', diceNum);
+btnPlayer2.addEventListener('click', function () {
+    btnPlayer2.disabled = true;
+    result.textContent = defaultResult;
+
+    let timer = setInterval(function () {
+        diceNumPlayer2 = random(dicePlayer2)
+    }, 100);
+
+    setTimeout(() => {
+        clearInterval(timer);
+
+        isRolledPlayer2 = true;
+        if (isRolledPlayer1 && isRolledPlayer2) {
+            displayResult();
+        }
+    }, 3000)
+});
+
+const random = function (imgElement) {
+    const diceNum = Math.floor(Math.random() * 6 + 1);
+    imgElement.setAttribute('src', `./img/saikoro${diceNum}.png`);
+    return diceNum;
 };
 
-// -----------------------------
+function displayResult() {
+    if (diceNumPlayer1 > diceNumPlayer2) {
+        result.textContent = 'player1の勝利';
+    } else if (diceNumPlayer1 < diceNumPlayer2) {
+        result.textContent = 'player2の勝利';
+    } else {
+        result.textContent = '引き分け';
+    }
 
-// clearTimeout
-// サイコロイメージをドキュメントに追加
-// const diceBtn = document.getElementById('diceBtn');
-// const bodyElement = document.querySelector('body');
-
-// const diceImg = document.createElement('img');
-// bodyElement.appendChild(diceImg);
-// diceImg.style.width = '100px';
-// diceImg.style.height = '100px';
-
-// // 初期値
-// let diceNum = './img/saikoro1.png';
-// diceImg.setAttribute('src', diceNum);
-
-// let timer;
-// let timeout;
-// let count = 0;
-// function randomDice() {
-//     console.log(count++);
-//     diceNum = `./img/saikoro${Math.floor(Math.random() * 6) + 1}.png`;
-//     diceImg.setAttribute('src', diceNum);
-// }
-
-// diceBtn.addEventListener('click', () => {
-//     clearInterval(timer);
-//     clearTimeout(timeout);
-//     count = 0;
-//     timer = setInterval(randomDice, 100)
-//     timeout = setTimeout(function () {
-//         clearInterval(timer);
-//         count = 0;
-//     }, 3000);
-// });
-
-// ---------------------
-// 自分で書いたフラグ式
-// let isRolling = false;  // サイコロ実行中
-
-// // サイコロイメージをドキュメントに追加
-// const diceBtn = document.getElementById('diceBtn');
-// const bodyElement = document.querySelector('body');
-
-// const diceImg = document.createElement('img');
-// bodyElement.appendChild(diceImg);
-// diceImg.style.width = '100px';
-// diceImg.style.height = '100px';
-
-// // 初期値
-// let diceNum = './img/saikoro1.png';
-// diceImg.setAttribute('src', diceNum);
-
-// function randomDice() {
-//     diceNum = `./img/saikoro${Math.floor(Math.random() * 6) + 1}.png`;
-//     diceImg.setAttribute('src', diceNum);
-// }
-
-// diceBtn.addEventListener('click', () => {
-//     if (!isRolling) {
-//         isRolling = true;
-//         let timer = setInterval(randomDice, 100)
-//         setTimeout(function () {
-//             clearInterval(timer);
-//             isRolling = false;
-//         }, 3000);
-//     }
-// });
+    isRolledPlayer1 = false;
+    isRolledPlayer2 = false;
+    btnPlayer1.disabled = false;
+    btnPlayer2.disabled = false;
+}
