@@ -9,3 +9,7 @@ const reply = function () {
     alert(action);
     count = 0;
 }
+
+const cntDown = function () {
+    count <= 0 ? alert('もう誰もいない、、、') : count--;
+}
