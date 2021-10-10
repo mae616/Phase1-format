@@ -32,22 +32,23 @@
 const startTimer2 = document.getElementById('startTimer2');
 const confirmTime2 = document.getElementById('confirmTime2');
 
-let timerId;
+let timerIds = [];
+let currentTimerId;
 let startDate;
 let countTime;
 startTimer2.addEventListener('click', function () {
     startDate = new Date();
-    timerId = setInterval(function () {
-        console.log("★ " + timerId);
+    currentTimerId = setInterval(function () {
+        console.log("currentTimerId: " + currentTimerId);
+        console.log("timerIds: " + timerIds);
         console.log("start " + startDate);
         countTime = getProgressSeconds(startDate);
         if (countTime === 40) {
             confirm(`時間オーバー...再挑戦してください`);
-            console.log("☆" + timerId);
-            clearInterval(timerId);
-            startDate = null;
+            clearCount(currentTimerId, timerIds, startDate);
         }
     }, 1000);
+    timerIds.push(currentTimerId);
 });
 
 confirmTime2.addEventListener('click', function () {
@@ -60,9 +61,7 @@ confirmTime2.addEventListener('click', function () {
         } else {
             alert(`もう、${countTime}秒...再挑戦してください`);
         }
-        console.log("◎" + timerId);
-        clearInterval(timerId);
-        startDate = null;
+        clearCount(currentTimerId, timerIds, startDate);
     } else {
         alert('スタートしてください');
     }
@@ -71,6 +70,18 @@ confirmTime2.addEventListener('click', function () {
 function getProgressSeconds(startDate) {
 
     return Math.floor((new Date().getTime() - startDate.getTime()) / 1000);
+}
+
+
+function clearCount() {
+
+    clearInterval(currentTimerId);
+    while (timerIds.length > 0) {
+        currentTimerId = timerIds.shift();
+        clearInterval(currentTimerId);
+    }
+
+    startDate = null;
 }
 
 
@@ -105,6 +116,7 @@ function getProgressSeconds(startDate) {
 
 // const countUp2 = function () {
 //     let checkTime = new Date();
+//     console.log("☆");
 //     diffTime = Math.floor((checkTime.getTime() - startTime.getTime()) / 1000);
 //     if (diffTime === 40) {
 //         alert("終了/また挑戦しろ");
