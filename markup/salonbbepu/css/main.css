@@ -155,7 +155,7 @@ header {
         position: absolute;
         top: 50%;
         left: 6vw;
-        transform: translate(0, -50%); } }
+        transform: translateY(-50%); } }
     @media (max-width: 599px) {
       header .hd-logo {
         font-size: 2.2rem; } }
@@ -173,7 +173,7 @@ header {
         position: absolute;
         top: 50%;
         right: 0;
-        transform: translate(0, -50%);
+        transform: translateY(-50%);
         z-index: 1;
         margin-right: 6vw; }
         header .ham span {
@@ -227,7 +227,7 @@ header {
         position: absolute;
         top: 50%;
         left: 0;
-        transform: translate(0, -50%); }
+        transform: translateY(-50%); }
         header #ham-open:checked ~ .ham-button > .ham span:nth-child(1) {
           transform: rotate(45deg); }
         header #ham-open:checked ~ .ham-button > .ham span:nth-child(2) {
@@ -266,10 +266,13 @@ header {
 
 #first-v {
   height: 100vh;
-  background-image: url("../img/Blond woman with long curly beautiful hair_2x.png");
+  background-image: url("../img/Blond woman with long curly beautiful hair.png");
   background-position: right;
   background-size: 54% 100%;
   background-repeat: no-repeat; }
+  @media (min-width: 1025px) {
+    #first-v {
+      background-image: url("../img/Blond woman with long curly beautiful hair_2x.png"); } }
   @media (max-width: 1024px) {
     #first-v {
       background-position: initial;
@@ -464,7 +467,7 @@ header {
         position: absolute;
         top: 50%;
         left: 8vw;
-        transform: translate(0, -50%); }
+        transform: translateY(-50%); }
         @media (max-width: 1024px) {
           #access .access-wrap .access-txt__wrap .access-txt {
             position: initial;

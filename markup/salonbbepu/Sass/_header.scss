@@ -31,7 +31,7 @@ header{
             position: absolute;
             top: 50%;
             left: 6vw;
-            transform: translate(0, -50%);
+            transform: translateY(-50%);
 
         }
 
@@ -57,7 +57,7 @@ header{
             position: absolute;
             top: 50%;
             right: 0;
-            transform: translate(0, -50%);
+            transform: translateY(-50%);
             z-index: 1;
             margin-right: 6vw; // 21px / 375px (画面サイズ)
 
@@ -141,7 +141,7 @@ header{
                 position: absolute;
                 top: 50%;
                 left: 0;
-                transform: translate(0, -50%);
+                transform: translateY(-50%);
 
                 &:nth-child(1){
                     transform: rotate(45deg);

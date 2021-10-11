@@ -1,10 +1,15 @@
 #first-v{
     height: 100vh; // 800px
-    background-image: url("../img/Blond\ woman\ with\ long\ curly\ beautiful\ hair_2x.png");
+    background-image: url("../img/Blond\ woman\ with\ long\ curly\ beautiful\ hair.png");
     background-position: right;
     // 689px(画像横幅) / 1282px(画面横幅) = 54%
     background-size: 54% 100%;
+    // background-size: contain;    // どうしたら良いかわからない
     background-repeat: no-repeat;
+
+    @include pc{
+        background-image: url("../img/Blond\ woman\ with\ long\ curly\ beautiful\ hair_2x.png");
+    }
 
     @include tab{
         background-position: initial;
