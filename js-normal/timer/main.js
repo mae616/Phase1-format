@@ -7,31 +7,39 @@ const nowTime = document.getElementById('nowTime');
 startTimer.disabled = true;
 stopTimer.disabled = true;
 
-let confirmInputTime;
+let sec;
 let timerId;
 
+const toTimeStirng = function (sec) {
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec - h * 3600) / 60);
+    const s = sec % 60;
+    return h + '時' + m + '分' + s + '秒';
+}
+
 setTime.addEventListener('click', function () {
-    confirmInputTime = inputTime.value;
-    nowTime.textContent = `${confirmInputTime}：セット完了です`;
+    sec = inputTime.value;
+    nowTime.textContent = `${toTimeStirng(sec)}：セット完了です`;
 
     startTimer.disabled = false;    // 活性
     stopTimer.disabled = true;
 });
 
 startTimer.addEventListener('click', function () {
-    if (isNaN(confirmInputTime) || confirmInputTime <= 0) {
+    if (isNaN(sec) || sec <= 0) {
         confirmInputTime = 10;
     }
+    clearInterval(timerId);
     timerId = setInterval(function () {
-        confirmInputTime--;
-        if (confirmInputTime === 0) {
+        sec--;
+        if (sec === 0) {
             alert('終了')
             clearInterval(timerId);
             setTime.disabled = false;    // 活性
             startTimer.disabled = true;
             stopTimer.disabled = true;
         }
-        nowTime.textContent = confirmInputTime;
+        nowTime.textContent = toTimeStirng(sec);
     }, 1000);
 
     setTime.disabled = true;
@@ -41,9 +49,11 @@ startTimer.addEventListener('click', function () {
 
 stopTimer.addEventListener('click', function () {
     clearInterval(timerId);
-    nowTime.textContent = `${confirmInputTime}：ストップしました`;
+    nowTime.textContent = `${toTimeStirng(sec)}：ストップしました`;
 
     setTime.disabled = false;    // 活性
     startTimer.disabled = false;    // 活性
     stopTimer.disabled = true;
 });
+
+
