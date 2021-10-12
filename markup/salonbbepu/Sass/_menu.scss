@@ -42,7 +42,11 @@
                 height:270px;
 
                 @include tab{
-                    height: 100%;
+                    height: 400px;
+                }
+                
+                @include sp{
+                    height: 270px;
                 }
 
                 img{
