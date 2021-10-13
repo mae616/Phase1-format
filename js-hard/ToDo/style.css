@@ -4,4 +4,17 @@ body {
 
 .lists {
   list-style: none;
+  width: 40%;
+  min-width: 250px;
+  margin: 0 auto;
+}
+.lists li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.lists li p{
+  margin: 0;
 }
