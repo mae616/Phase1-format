@@ -2,11 +2,17 @@ const addTaskBtn = document.getElementsByClassName('add-btn');
 
 addTaskBtn[0].addEventListener('click', () => {
     const todoArea = document.getElementById('todo');
-    const addTaskText = document.getElementById('add-area').value;
+    const addTaskText = document.getElementById('add-area');
+
+    if (addTaskText.value.length === 0) {
+        alert('空欄です！');
+        return;
+    }
+
     // タスクの追加
     const li = document.createElement('li');
     const p = document.createElement('p');
-    p.textContent = addTaskText;
+    p.textContent = addTaskText.value;
     li.appendChild(p);
 
     const finishBtn = document.createElement('button');
@@ -24,4 +30,5 @@ addTaskBtn[0].addEventListener('click', () => {
     li.appendChild(finishBtn);
 
     todoArea.appendChild(li);
+    addTaskText.value = '';
 });
