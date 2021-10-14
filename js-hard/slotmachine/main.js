@@ -28,26 +28,23 @@ const arySlot = [
     { timerId: null, num: 0 }];
 
 // スロットの数値を1つ減らす
-const upSlotNum = middleSlotNum => {
+const minusSlotNum = middleSlotNum => {
     let num = (middleSlotNum - 1) % 10;
     return num < 0 ? 10 + num : num;
 }
 
 // スロットの数値を1つ増やす
-const downSlotNum = middleSlotNum => (middleSlotNum + 1) % 10;
+const plusSlotNum = middleSlotNum => (middleSlotNum + 1) % 10;
 
 // スロットの数字のセット（縦一列）
 const setSlotNum = (col, middleSlotNum) => {
-    aryNowTime[0][col].textContent = upSlotNum(middleSlotNum);
+    aryNowTime[0][col].textContent = minusSlotNum(middleSlotNum);
     aryNowTime[1][col].textContent = middleSlotNum;
-    aryNowTime[2][col].textContent = downSlotNum(middleSlotNum);
+    aryNowTime[2][col].textContent = plusSlotNum(middleSlotNum);
 };
 
-
-
-
-for (let i = 0; i < aryNowTime[1].length; i++) {
-    setSlotNum(i, arySlot[i].num);
+for (let col = 0; col < aryNowTime[1].length; col++) {
+    setSlotNum(col, arySlot[col].num);
 }
 
 // スタートボタン
@@ -61,17 +58,17 @@ startTimer.addEventListener('click', () => {
     arySlot[0].timerId = setInterval(() => {
         arySlot[0].num = ++arySlot[0].num % 10;
         setSlotNum(0, arySlot[0].num);
-    }, 100);
+    }, 1000);
 
     arySlot[1].timerId = setInterval(() => {
         arySlot[1].num = ++arySlot[1].num % 10;
         setSlotNum(1, arySlot[1].num);
-    }, 100);
+    }, 1000);
 
     arySlot[2].timerId = setInterval(() => {
         arySlot[2].num = ++arySlot[2].num % 10;
         setSlotNum(2, arySlot[2].num);
-    }, 100);
+    }, 1000);
 
     setTime1.disabled = false;
     setTime2.disabled = false;
@@ -89,13 +86,13 @@ const isHit = () => {
         return true;
     }
     // 斜め
-    if (arySlot[0].num === upSlotNum(arySlot[1].num)
-        && arySlot[1].num === upSlotNum(arySlot[2].num)) {
+    if (arySlot[0].num === minusSlotNum(arySlot[1].num)
+        && arySlot[1].num === minusSlotNum(arySlot[2].num)) {
         return true;
     }
 
-    if (arySlot[0].num === downSlotNum(arySlot[1].num)
-        && arySlot[1].num === downSlotNum(arySlot[2].num)) {
+    if (arySlot[0].num === plusSlotNum(arySlot[1].num)
+        && arySlot[1].num === plusSlotNum(arySlot[2].num)) {
         return true;
     }
     return false;
