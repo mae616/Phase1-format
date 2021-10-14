@@ -15,12 +15,22 @@ p {
 
 /*  チャレンジ問題 */
 
-/* .slot-wrap {
+.slot-wrap {
   height: 160px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.slot-wrap p{
+  margin: 0;
 }
 
 .slot {
   height: 40px;
-} */
+}
+
+.middle-slot {
+  background-color: coral;
+}
 
 /*  チャレンジ問題  ここまで */

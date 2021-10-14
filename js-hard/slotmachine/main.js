@@ -1,25 +1,75 @@
-const nowTime = document.getElementById('nowTime');
-const nowTime2 = document.getElementById('nowTime2');
-const nowTime3 = document.getElementById('nowTime3');
+const aryNowTime = [
+    [
+        document.getElementById('nowTime4'),
+        document.getElementById('nowTime5'),
+        document.getElementById('nowTime6')
+    ],
+    [
+        document.getElementById('nowTime'),
+        document.getElementById('nowTime2'),
+        document.getElementById('nowTime3')
+    ],
+    [
+        document.getElementById('nowTime7'),
+        document.getElementById('nowTime8'),
+        document.getElementById('nowTime9')
+    ]
+];
+
 const startTimer = document.getElementById('startTimer');
 const setTime1 = document.getElementById('setTime1');
 const setTime2 = document.getElementById('setTime2');
 const setTime3 = document.getElementById('setTime3');
 
-let countStop = 0;
+let countStop = 0; // ストップを押した回数
 const arySlot = [
     { timerId: null, num: 0 },
     { timerId: null, num: 0 },
     { timerId: null, num: 0 }];
 
-nowTime.textContent = arySlot[0].num;
-nowTime2.textContent = arySlot[1].num;
-nowTime3.textContent = arySlot[2].num;
+// スロットの数値を1つ減らす
+const upSlotNum = middleSlotNum =>
+    (middleSlotNum - 1) % 10 < 0 ? (10 - middleSlotNum - 1) % 10 : (middleSlotNum - 1) % 10;
 
+// スロットの数値を1つ増やす
+const downSlotNum = middleSlotNum => (middleSlotNum + 1) % 10;
+
+// スロットの数字のセット（縦一列）
+const setSlotNum = (col, middleSlotNum) => {
+    aryNowTime[0][col].textContent = upSlotNum(middleSlotNum);
+    aryNowTime[1][col].textContent = middleSlotNum;
+    aryNowTime[2][col].textContent = downSlotNum(middleSlotNum);
+};
+
+for (let i = 0; i < aryNowTime[1].length; i++) {
+    setSlotNum(i, arySlot[i].num);
+}
+
+// 揃ったか判定部分だけ
+const isHit = () => {
+
+    // 横
+    if (arySlot[0].num === arySlot[1].num
+        && arySlot[1].num === arySlot[2].num) {
+        return true;
+    }
+    // 斜め
+    if (arySlot[0].num === upSlotNum(arySlot[1].num)
+        && arySlot[1].num === upSlotNum(arySlot[2].num)) {
+        return true;
+    }
+
+    if (arySlot[0].num === downSlotNum(arySlot[1].num)
+        && arySlot[1].num === downSlotNum(arySlot[2].num)) {
+        return true;
+    }
+    return false;
+};
+
+// 揃ったか判定し、メッセージ
 const slotHit = () => {
     if (countStop === 3) {
-        if (arySlot[0].num === arySlot[1].num
-            && arySlot[1].num === arySlot[2].num) {
+        if (isHit()) {
             alert('おめでとう');
         } else {
             alert('再挑戦');
@@ -28,24 +78,27 @@ const slotHit = () => {
     }
 };
 
+
 startTimer.addEventListener('click', () => {
+    // 2回スタートした時の考慮
     for (let i = 0; i < arySlot.length; i++) {
         clearInterval(arySlot[i].timerId);
     }
 
+    // スロットを回す
     arySlot[0].timerId = setInterval(() => {
         arySlot[0].num = ++arySlot[0].num % 10;
-        nowTime.textContent = arySlot[0].num;
+        setSlotNum(0, arySlot[0].num);
     }, 100);
 
     arySlot[1].timerId = setInterval(() => {
         arySlot[1].num = ++arySlot[1].num % 10;
-        nowTime2.textContent = arySlot[1].num;
+        setSlotNum(1, arySlot[1].num);
     }, 100);
 
     arySlot[2].timerId = setInterval(() => {
         arySlot[2].num = ++arySlot[2].num % 10;
-        nowTime3.textContent = arySlot[2].num;
+        setSlotNum(2, arySlot[2].num);
     }, 100);
 
     setTime1.disabled = false;
@@ -53,6 +106,7 @@ startTimer.addEventListener('click', () => {
     setTime3.disabled = false;
 });
 
+// ストップ
 setTime1.addEventListener('click', () => {
     countStop++;
     clearInterval(arySlot[0].timerId);
