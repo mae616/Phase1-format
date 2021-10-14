@@ -28,8 +28,10 @@ const arySlot = [
     { timerId: null, num: 0 }];
 
 // スロットの数値を1つ減らす
-const upSlotNum = middleSlotNum =>
-    (middleSlotNum - 1) % 10 < 0 ? (10 - middleSlotNum - 1) % 10 : (middleSlotNum - 1) % 10;
+const upSlotNum = middleSlotNum => {
+    let num = (middleSlotNum - 1) % 10;
+    return num < 0 ? 10 + num : num;
+}
 
 // スロットの数値を1つ増やす
 const downSlotNum = middleSlotNum => (middleSlotNum + 1) % 10;
@@ -41,9 +43,42 @@ const setSlotNum = (col, middleSlotNum) => {
     aryNowTime[2][col].textContent = downSlotNum(middleSlotNum);
 };
 
+
+
+
 for (let i = 0; i < aryNowTime[1].length; i++) {
     setSlotNum(i, arySlot[i].num);
 }
+
+// スタートボタン
+startTimer.addEventListener('click', () => {
+    // 2回スタートした時の考慮
+    for (let i = 0; i < arySlot.length; i++) {
+        clearInterval(arySlot[i].timerId);
+    }
+
+    // スロットを回す
+    arySlot[0].timerId = setInterval(() => {
+        arySlot[0].num = ++arySlot[0].num % 10;
+        setSlotNum(0, arySlot[0].num);
+    }, 100);
+
+    arySlot[1].timerId = setInterval(() => {
+        arySlot[1].num = ++arySlot[1].num % 10;
+        setSlotNum(1, arySlot[1].num);
+    }, 100);
+
+    arySlot[2].timerId = setInterval(() => {
+        arySlot[2].num = ++arySlot[2].num % 10;
+        setSlotNum(2, arySlot[2].num);
+    }, 100);
+
+    setTime1.disabled = false;
+    setTime2.disabled = false;
+    setTime3.disabled = false;
+});
+
+// ストップボタンから呼ばれる関数
 
 // 揃ったか判定部分だけ
 const isHit = () => {
@@ -78,35 +113,7 @@ const slotHit = () => {
     }
 };
 
-
-startTimer.addEventListener('click', () => {
-    // 2回スタートした時の考慮
-    for (let i = 0; i < arySlot.length; i++) {
-        clearInterval(arySlot[i].timerId);
-    }
-
-    // スロットを回す
-    arySlot[0].timerId = setInterval(() => {
-        arySlot[0].num = ++arySlot[0].num % 10;
-        setSlotNum(0, arySlot[0].num);
-    }, 100);
-
-    arySlot[1].timerId = setInterval(() => {
-        arySlot[1].num = ++arySlot[1].num % 10;
-        setSlotNum(1, arySlot[1].num);
-    }, 100);
-
-    arySlot[2].timerId = setInterval(() => {
-        arySlot[2].num = ++arySlot[2].num % 10;
-        setSlotNum(2, arySlot[2].num);
-    }, 100);
-
-    setTime1.disabled = false;
-    setTime2.disabled = false;
-    setTime3.disabled = false;
-});
-
-// ストップ
+// ストップボタン
 setTime1.addEventListener('click', () => {
     countStop++;
     clearInterval(arySlot[0].timerId);
