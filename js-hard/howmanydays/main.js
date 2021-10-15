@@ -21,7 +21,9 @@ const dateSearchBtn = document.getElementById('dateSearch');
 const diffTime = document.getElementById('diffTime');
 
 let timerId = null;
-dateSearchBtn.addEventListener('click', () => {
+
+// dateSetとの差の期間を表示
+const displayDiffTime = () => {
     const dateSetValue = dateSet.value;
     const dateSetMoment = moment(dateSetValue);
 
@@ -36,24 +38,15 @@ dateSearchBtn.addEventListener('click', () => {
             + duration.minutes() + '分'
             + duration.seconds() + '秒';
     }, 1000);
+};
+
+dateSearchBtn.addEventListener('click', () => {
+    displayDiffTime();
 });
 
 dateSet.addEventListener('change', () => {
-    if (timerId) {
-        const dateSetValue = dateSet.value;
-        const dateSetMoment = moment(dateSetValue);
-
-        clearInterval(timerId);
-        timerId = setInterval(() => {
-            const diff = dateSetMoment.diff(moment());
-            const duration = moment.duration(diff).locale('ja');
-
-            diffTime.textContent = dateSetValue + 'まで後'
-                + Math.trunc(duration.asDays()) + '日'
-                + duration.hours() + '時間'
-                + duration.minutes() + '分'
-                + duration.seconds() + '秒';
-        }, 1000);
+    if (timerId) {  // 既にsetIntervalが動いていたら
+        displayDiffTime();
     }
 });
 
