@@ -12,7 +12,7 @@ const isSameNumber = numToCheck => /(.).*\1/.test(numToCheck);
 const convertStringToNumArray = str => str.split('').map(element => parseInt(element));
 
 //EATとBITEを判定し、アラートを表示する。
-const showMsgEatAndBiteText = (CpAnswer, inputAnswer) => {
+const showMsg_EatAndBiteText = (CpAnswer, inputAnswer) => {
     // EATとBITEの判定
     let coutEat = 0;
     let countBite = 0;
@@ -73,7 +73,7 @@ numCheckBtn.addEventListener('click', () => {
 
     // 判定
     const inputAnswerArray = convertStringToNumArray(answerNum.value);
-    showMsgEatAndBiteText(cpAnswerArray, inputAnswerArray);
+    showMsg_EatAndBiteText(cpAnswerArray, inputAnswerArray);
 
     // 回数制限の表示
     if (countDownAnswer === 0) {
