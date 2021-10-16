@@ -61,11 +61,13 @@ numCheckBtn.addEventListener('click', () => {
     // チェック
     if (answerNum.value.length !== NUM_LENGTH) {
         alert(`${NUM_LENGTH}桁の数を入れて下さい`);
+        answerNum.value = '';
         return;
     }
 
     if (isSameNumber(answerNum.value)) {
         alert('同じ数を2回使ってはいけません');
+        answerNum.value = '';
         return;
     }
 
