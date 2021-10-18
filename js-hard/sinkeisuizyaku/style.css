@@ -28,3 +28,10 @@ panel {
   opacity: 0;
   cursor: default;
 }
+
+.inner{
+  clear: left;
+}
+.inner p{
+  margin: 0;
+}
