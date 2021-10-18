@@ -1,9 +1,13 @@
 'use strict';
 
 const panel = document.getElementById('panel');
+const nextPlayer = document.getElementById('nextPlayer');
+const player1Point = document.getElementById('player1Point');
+const player2Point = document.getElementById('player2Point');
 
 const PAIR_CARD_NUM = 2; // 揃ったとする同じ数字の数
 const SUM_CARD_NUM = 8; // カードの合計枚数
+const PLAYER_NUM = 2;
 
 if (SUM_CARD_NUM % PAIR_CARD_NUM !== 0) {
     throw new Error('プログラムエラー：カードの合計枚数がペアとなる枚数で割り切れません！');
@@ -14,38 +18,43 @@ const cards = new Array(SUM_CARD_NUM).fill().map((_, index) => Math.floor(index 
 
 // シャッフル
 const shuffle = aryCards => {
-    const picked = new Array(aryCards.length);
-    picked.fill(false);
-    let remainingCardsNum = aryCards.length;    // シャッフルしてない枚数
-    const shuffled = [];
-    while (remainingCardsNum > 0) {
-
-        let count = 0;
-        const random = Math.floor(Math.random() * remainingCardsNum);
-
-        // peickedの値がfalseだけの分で先頭から数えて(乱数)番目の添え字を取得する
-        const index = picked.findIndex(element => !element && count++ === random);
-        picked[index] = true;
-
-        shuffled.push(aryCards[index]);
-        remainingCardsNum--;
+    for (let i = 0; i <= aryCards.length - 2; i++) {
+        const random = Math.floor(Math.random() * (aryCards.length - i) + i);
+        [aryCards[i], aryCards[random]] = [aryCards[random], aryCards[i]];
     }
-    return shuffled;
 };
 
+shuffle(cards);
 
-const shuffledCards = shuffle(cards);
-
-// カードのdiv要素を作成
+// カードの表示
 let choiceNums = [];    // カードを選択した値の配列
 let choiceIds = [];    // カードを選択したIDの配列
 let countDownCard = SUM_CARD_NUM;
+let turn = 0;
+const playerPoint = new Array(PLAYER_NUM).fill(0);
 
+const changeTurn = turn => ++turn % PLAYER_NUM;
+
+const getNextPlayer = turn => `次は${turn === 0 ? 'player1' : 'player2'}の番です`;
+const getPointPlayer1 = () => `player1: ${playerPoint[0]}`;
+const getPointPlayer2 = () => `player2: ${playerPoint[1]}`;
+
+// 初期表示
+nextPlayer.textContent = getNextPlayer(turn);
+player1Point.textContent = getPointPlayer1();
+player2Point.textContent = getPointPlayer2();
+
+
+// 揃った場合の処理の関数
 const finishCards = choiceIds => {
     choiceIds.forEach(element => {
         const div = document.getElementById(element);
         div.classList.add('finish');
     });
+    playerPoint[turn]++;
+    player1Point.textContent = getPointPlayer1();
+    player2Point.textContent = getPointPlayer2();
+
     countDownCard -= PAIR_CARD_NUM;
 
     if (countDownCard === 0) {
@@ -55,15 +64,19 @@ const finishCards = choiceIds => {
     }
 };
 
+// 揃わなくて裏返しにする処理の関数
 const backCards = choiceIds => {
     choiceIds.forEach(element => {
         const div = document.getElementById(element);
         div.textContent = '';
         div.classList.add('back');
     });
+    turn = changeTurn(turn);
+    nextPlayer.textContent = getNextPlayer(turn);
 };
 
-shuffledCards.forEach((_, index) => {
+// カードのdiv要素を作成
+cards.forEach((_, index) => {
     const div = document.createElement('div');
     div.classList.add('card', 'back');
     div.setAttribute('id', index);
@@ -71,15 +84,18 @@ shuffledCards.forEach((_, index) => {
     div.addEventListener('click', e => {
         const index = parseInt(e.target.id);
         e.target.classList.remove('back');
-        e.target.textContent = shuffledCards[index];
-        choiceNums.push(shuffledCards[index]);
+        e.target.textContent = cards[index];
+        choiceNums.push(cards[index]);
         choiceIds.push(index);
 
         if (choiceNums.length === PAIR_CARD_NUM) {
             setTimeout(() => {
+                // すべて同じ数字か
                 if (choiceNums.every((element, _, arr) => element === arr[0])) {
+                    // 揃った場合の処理
                     finishCards(choiceIds);
                 } else {
+                    // 揃わなくて裏返しにする処理
                     backCards(choiceIds);
                 }
                 choiceNums = [];
@@ -89,5 +105,5 @@ shuffledCards.forEach((_, index) => {
     });
 
     panel.appendChild(div);
-})
+});
 
