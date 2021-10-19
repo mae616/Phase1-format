@@ -57,53 +57,16 @@ nextPlayer.textContent = getNextPlayer(turn);
 displayPoint(); // プレイヤーのポイントを表示する
 
 
-// 揃った場合の処理の関数
-const finishCards = () => {
-    playerPoint[turn]++;
-    displayPoint(); // プレイヤーのポイントを表示する
 
-    setTimeout(() => {
-        for (let element of choiceIds) {
-            const div = document.getElementById(element);
-            div.classList.add('finish');
-        }
-
-        countDownCard -= PAIR_CARD_NUM;
-        choiceNums = [];
-        choiceIds = [];
-
-        if (countDownCard === 0) {
-            if (!alert('終了です')) {
-                location.reload();
-            }
-        }
-    }, 500);
-};
-
-// 揃わなくて裏返しにする処理の関数
-const backCards = () => {
-    setTimeout(() => {
-        for (let element of choiceIds) {
-            const div = document.getElementById(element);
-            div.textContent = '';
-            div.classList.add('back');
-        }
-
-        turn = changeTurn(turn);
-        nextPlayer.textContent = getNextPlayer(turn);
-        choiceNums = [];
-        choiceIds = [];
-    }, 500);
-};
 
 // カードのdiv要素を作成
-for (let [index, element] of cards.entries()) {
+for (let [index, cardValue] of cards.entries()) {
     const div = document.createElement('div');
     div.classList.add('card', 'back');
     div.setAttribute('id', index);
 
     // イベントリスナー登録
-    div.addEventListener('click', e => {
+    div.addEventListener('click', function clickFunck(e) {
 
         // 1回で選択するカードの数を超えた場合の考慮
         if (choiceNums.length === PAIR_CARD_NUM) {
@@ -116,15 +79,55 @@ for (let [index, element] of cards.entries()) {
             return;
         }
 
+        // 揃った場合の処理の関数
+        const finishCards = () => {
+            playerPoint[turn]++;
+            displayPoint(); // プレイヤーのポイントを表示する
+
+            setTimeout(() => {
+                for (let choiceId of choiceIds) {
+                    const div = document.getElementById(choiceId);
+                    div.classList.add('finish');
+                    div.removeEventListener('click', clickFunck);
+                }
+
+                countDownCard -= PAIR_CARD_NUM;
+                choiceNums = [];
+                choiceIds = [];
+
+                if (countDownCard === 0) {
+                    if (!alert('終了です')) {
+                        location.reload();
+                    }
+                }
+            }, 500);
+        };
+
+        // 揃わなくて裏返しにする処理の関数
+        const backCards = () => {
+            setTimeout(() => {
+                for (let choiceId of choiceIds) {
+                    const div = document.getElementById(choiceId);
+                    div.textContent = '';
+                    div.classList.add('back');
+                }
+
+                turn = changeTurn(turn);
+                nextPlayer.textContent = getNextPlayer(turn);
+                choiceNums = [];
+                choiceIds = [];
+            }, 500);
+        };
+
         e.target.classList.remove('back');
-        e.target.textContent = element;
-        choiceNums.push(element);
+        e.target.textContent = cardValue;
+        choiceNums.push(cardValue);
         choiceIds.push(targetIndex);
 
         if (choiceNums.length === PAIR_CARD_NUM) {
 
             // すべて同じ数字か
-            if (choiceNums.every((ele, _, arr) => ele === arr[0])) {
+            if (choiceNums.every((choiceNum, _, arr) => choiceNum === arr[0])) {
                 // 揃った場合の処理
                 finishCards();
             } else {
