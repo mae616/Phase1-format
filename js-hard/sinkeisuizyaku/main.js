@@ -53,10 +53,10 @@ const finishCards = choiceIds => {
     player2Point.textContent = getPointPlayer2();
 
     setTimeout(() => {
-        choiceIds.forEach(element => {
+        for (let element of choiceIds) {
             const div = document.getElementById(element);
             div.classList.add('finish');
-        });
+        }
 
         countDownCard -= PAIR_CARD_NUM;
 
@@ -71,18 +71,19 @@ const finishCards = choiceIds => {
 // 揃わなくて裏返しにする処理の関数
 const backCards = choiceIds => {
     setTimeout(() => {
-        choiceIds.forEach(element => {
+        for (let element of choiceIds) {
             const div = document.getElementById(element);
             div.textContent = '';
             div.classList.add('back');
-        });
+        }
+
         turn = changeTurn(turn);
         nextPlayer.textContent = getNextPlayer(turn);
     }, 500);
 };
 
 // カードのdiv要素を作成
-cards.forEach((element, index) => {
+for (let [index, element] of cards.entries()) {
     const div = document.createElement('div');
     div.classList.add('card', 'back');
     div.setAttribute('id', index);
@@ -111,5 +112,5 @@ cards.forEach((element, index) => {
     });
 
     panel.appendChild(div);
-});
+}
 
