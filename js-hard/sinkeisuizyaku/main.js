@@ -58,7 +58,7 @@ displayPoint(); // プレイヤーのポイントを表示する
 
 
 // 揃った場合の処理の関数
-const finishCards = choiceIds => {
+const finishCards = () => {
     playerPoint[turn]++;
     displayPoint(); // プレイヤーのポイントを表示する
 
@@ -69,6 +69,8 @@ const finishCards = choiceIds => {
         }
 
         countDownCard -= PAIR_CARD_NUM;
+        choiceNums = [];
+        choiceIds = [];
 
         if (countDownCard === 0) {
             if (!alert('終了です')) {
@@ -79,7 +81,7 @@ const finishCards = choiceIds => {
 };
 
 // 揃わなくて裏返しにする処理の関数
-const backCards = choiceIds => {
+const backCards = () => {
     setTimeout(() => {
         for (let element of choiceIds) {
             const div = document.getElementById(element);
@@ -89,6 +91,8 @@ const backCards = choiceIds => {
 
         turn = changeTurn(turn);
         nextPlayer.textContent = getNextPlayer(turn);
+        choiceNums = [];
+        choiceIds = [];
     }, 500);
 };
 
@@ -100,24 +104,33 @@ for (let [index, element] of cards.entries()) {
 
     // イベントリスナー登録
     div.addEventListener('click', e => {
-        const index = parseInt(e.target.id);
+
+        // 1回で選択するカードの数を超えた場合の考慮
+        if (choiceNums.length === PAIR_CARD_NUM) {
+            return;
+        }
+
+        const targetIndex = parseInt(e.target.id);
+        // 同じカードを2回クリックしたときの考慮
+        if (choiceIds.includes(targetIndex)) {
+            return;
+        }
+
         e.target.classList.remove('back');
         e.target.textContent = element;
         choiceNums.push(element);
-        choiceIds.push(index);
+        choiceIds.push(targetIndex);
 
         if (choiceNums.length === PAIR_CARD_NUM) {
 
             // すべて同じ数字か
             if (choiceNums.every((ele, _, arr) => ele === arr[0])) {
                 // 揃った場合の処理
-                finishCards(choiceIds);
+                finishCards();
             } else {
                 // 揃わなくて裏返しにする処理
-                backCards(choiceIds);
+                backCards();
             }
-            choiceNums = [];
-            choiceIds = [];
         }
     });
 
