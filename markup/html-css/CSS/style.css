@@ -199,7 +199,7 @@ footer{
 
 /* news */
 #news{
-    background-image: URL("/img/bg2.png");
+    background-image: URL("../img/bg2.png");
     background-size: cover;
 }
 
@@ -283,7 +283,7 @@ footer{
 
 /* contact */
 #contact{
-    background-image: URL("/img/bg3.png");
+    background-image: URL("../img/bg3.png");
     background-size: cover;
     color: #fff;
 }
@@ -321,7 +321,7 @@ select{
 
 .contact-box:nth-of-type(3)::after{
     position: absolute;
-    background-image: URL("/img/arrow.png");
+    background-image: URL("../img/arrow.png");
     background-size: 100%;
     display: block;
     content: "";
